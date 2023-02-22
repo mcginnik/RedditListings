@@ -10,9 +10,24 @@
 		24FB467865FDDAB0FED553B8 /* Pods_RedditListings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA83E6BF272435E433A07FA /* Pods_RedditListings.framework */; };
 		A79D813729A66FA7001A8CAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D813629A66FA7001A8CAF /* AppDelegate.swift */; };
 		A79D813929A66FA7001A8CAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D813829A66FA7001A8CAF /* SceneDelegate.swift */; };
-		A79D813B29A66FA7001A8CAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D813A29A66FA7001A8CAF /* ViewController.swift */; };
 		A79D814029A66FA9001A8CAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A79D813F29A66FA9001A8CAF /* Assets.xcassets */; };
 		A79D814329A66FA9001A8CAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A79D814129A66FA9001A8CAF /* LaunchScreen.storyboard */; };
+		A79D815329A674F0001A8CAF /* ListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D815229A674F0001A8CAF /* ListingsViewController.swift */; };
+		A79D815629A67527001A8CAF /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D815529A67527001A8CAF /* StringConstants.swift */; };
+		A79D815929A676AB001A8CAF /* ListingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D815829A676AB001A8CAF /* ListingsViewModel.swift */; };
+		A79D815C29A67893001A8CAF /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D815B29A67893001A8CAF /* Section.swift */; };
+		A79D816129A67A32001A8CAF /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816029A67A32001A8CAF /* SectionCell.swift */; };
+		A79D816329A67A4F001A8CAF /* CellConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816229A67A4F001A8CAF /* CellConfiguring.swift */; };
+		A79D816529A67B3F001A8CAF /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816429A67B3F001A8CAF /* Listing.swift */; };
+		A79D816829A67CD8001A8CAF /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816729A67CD8001A8CAF /* AppConfig.swift */; };
+		A79D816B29A67D56001A8CAF /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816A29A67D56001A8CAF /* Logging.swift */; };
+		A79D816E29A67DBF001A8CAF /* ListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816D29A67DBF001A8CAF /* ListingsService.swift */; };
+		A79D817129A67DD0001A8CAF /* RESTListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D817029A67DD0001A8CAF /* RESTListingsService.swift */; };
+		A79D817329A67E14001A8CAF /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D817229A67E14001A8CAF /* WebService.swift */; };
+		A79D817629A6806C001A8CAF /* RedditEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D817529A6806C001A8CAF /* RedditEndpoints.swift */; };
+		A79D817829A69733001A8CAF /* ListingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D817729A69733001A8CAF /* ListingPage.swift */; };
+		A79D817A29A6978D001A8CAF /* ListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D817929A6978D001A8CAF /* ListingViewModel.swift */; };
+		A79D817F29A69DB9001A8CAF /* ListingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D817E29A69DB9001A8CAF /* ListingDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +35,25 @@
 		A79D813329A66FA7001A8CAF /* RedditListings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditListings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79D813629A66FA7001A8CAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A79D813829A66FA7001A8CAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A79D813A29A66FA7001A8CAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A79D813F29A66FA9001A8CAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A79D814229A66FA9001A8CAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A79D814429A66FA9001A8CAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A79D815229A674F0001A8CAF /* ListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsViewController.swift; sourceTree = "<group>"; };
+		A79D815529A67527001A8CAF /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		A79D815829A676AB001A8CAF /* ListingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsViewModel.swift; sourceTree = "<group>"; };
+		A79D815B29A67893001A8CAF /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		A79D816029A67A32001A8CAF /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
+		A79D816229A67A4F001A8CAF /* CellConfiguring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfiguring.swift; sourceTree = "<group>"; };
+		A79D816429A67B3F001A8CAF /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		A79D816729A67CD8001A8CAF /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		A79D816A29A67D56001A8CAF /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		A79D816D29A67DBF001A8CAF /* ListingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsService.swift; sourceTree = "<group>"; };
+		A79D817029A67DD0001A8CAF /* RESTListingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTListingsService.swift; sourceTree = "<group>"; };
+		A79D817229A67E14001A8CAF /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		A79D817529A6806C001A8CAF /* RedditEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditEndpoints.swift; sourceTree = "<group>"; };
+		A79D817729A69733001A8CAF /* ListingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingPage.swift; sourceTree = "<group>"; };
+		A79D817929A6978D001A8CAF /* ListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewModel.swift; sourceTree = "<group>"; };
+		A79D817E29A69DB9001A8CAF /* ListingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailViewController.swift; sourceTree = "<group>"; };
 		B46D8E42F0AD31F82B04BF19 /* Pods-RedditListings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditListings.release.xcconfig"; path = "Target Support Files/Pods-RedditListings/Pods-RedditListings.release.xcconfig"; sourceTree = "<group>"; };
 		DFFFD4554770B21DEA2761D8 /* Pods-RedditListings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditListings.debug.xcconfig"; path = "Target Support Files/Pods-RedditListings/Pods-RedditListings.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,12 +93,195 @@
 			children = (
 				A79D813629A66FA7001A8CAF /* AppDelegate.swift */,
 				A79D813829A66FA7001A8CAF /* SceneDelegate.swift */,
-				A79D813A29A66FA7001A8CAF /* ViewController.swift */,
 				A79D813F29A66FA9001A8CAF /* Assets.xcassets */,
 				A79D814129A66FA9001A8CAF /* LaunchScreen.storyboard */,
+				A79D816629A67CCE001A8CAF /* Config */,
+				A79D814A29A6747A001A8CAF /* Main */,
+				A79D815A29A6787E001A8CAF /* Model */,
+				A79D814C29A67487001A8CAF /* Networking */,
+				A79D814B29A67482001A8CAF /* Util */,
 				A79D814429A66FA9001A8CAF /* Info.plist */,
 			);
 			path = RedditListings;
+			sourceTree = "<group>";
+		};
+		A79D814A29A6747A001A8CAF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A79D814E29A674AC001A8CAF /* ListingDetail */,
+				A79D814D29A67490001A8CAF /* Listings */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A79D814B29A67482001A8CAF /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A79D816929A67D4E001A8CAF /* Logging */,
+				A79D815D29A67A04001A8CAF /* UI */,
+				A79D815429A6751C001A8CAF /* Constants */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		A79D814C29A67487001A8CAF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A79D817429A6805A001A8CAF /* Reddit */,
+				A79D817229A67E14001A8CAF /* WebService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A79D814D29A67490001A8CAF /* Listings */ = {
+			isa = PBXGroup;
+			children = (
+				A79D816C29A67DB5001A8CAF /* API */,
+				A79D815129A674C6001A8CAF /* ViewController */,
+				A79D815029A674C2001A8CAF /* ViewModel */,
+				A79D814F29A674BE001A8CAF /* View */,
+			);
+			path = Listings;
+			sourceTree = "<group>";
+		};
+		A79D814E29A674AC001A8CAF /* ListingDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A79D817D29A69D86001A8CAF /* ViewModel */,
+				A79D817C29A69D82001A8CAF /* View */,
+				A79D817B29A69D74001A8CAF /* ViewController */,
+			);
+			path = ListingDetail;
+			sourceTree = "<group>";
+		};
+		A79D814F29A674BE001A8CAF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A79D815029A674C2001A8CAF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A79D815829A676AB001A8CAF /* ListingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A79D815129A674C6001A8CAF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A79D815229A674F0001A8CAF /* ListingsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A79D815429A6751C001A8CAF /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A79D815529A67527001A8CAF /* StringConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		A79D815A29A6787E001A8CAF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A79D815B29A67893001A8CAF /* Section.swift */,
+				A79D816429A67B3F001A8CAF /* Listing.swift */,
+				A79D817729A69733001A8CAF /* ListingPage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A79D815D29A67A04001A8CAF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A79D815E29A67A0A001A8CAF /* CollectionView */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A79D815E29A67A0A001A8CAF /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				A79D815F29A67A0F001A8CAF /* SectionCell */,
+				A79D816229A67A4F001A8CAF /* CellConfiguring.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		A79D815F29A67A0F001A8CAF /* SectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				A79D816029A67A32001A8CAF /* SectionCell.swift */,
+			);
+			path = SectionCell;
+			sourceTree = "<group>";
+		};
+		A79D816629A67CCE001A8CAF /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				A79D816729A67CD8001A8CAF /* AppConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		A79D816929A67D4E001A8CAF /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				A79D816A29A67D56001A8CAF /* Logging.swift */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
+		A79D816C29A67DB5001A8CAF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A79D816F29A67DC2001A8CAF /* RESTListingsService */,
+				A79D816D29A67DBF001A8CAF /* ListingsService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A79D816F29A67DC2001A8CAF /* RESTListingsService */ = {
+			isa = PBXGroup;
+			children = (
+				A79D817029A67DD0001A8CAF /* RESTListingsService.swift */,
+			);
+			path = RESTListingsService;
+			sourceTree = "<group>";
+		};
+		A79D817429A6805A001A8CAF /* Reddit */ = {
+			isa = PBXGroup;
+			children = (
+				A79D817529A6806C001A8CAF /* RedditEndpoints.swift */,
+			);
+			path = Reddit;
+			sourceTree = "<group>";
+		};
+		A79D817B29A69D74001A8CAF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A79D817E29A69DB9001A8CAF /* ListingDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A79D817C29A69D82001A8CAF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A79D817D29A69D86001A8CAF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A79D817929A6978D001A8CAF /* ListingViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		AE81D02BB96826AFA239CFA6 /* Pods */ = {
@@ -184,9 +397,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A79D813B29A66FA7001A8CAF /* ViewController.swift in Sources */,
+				A79D815929A676AB001A8CAF /* ListingsViewModel.swift in Sources */,
+				A79D817629A6806C001A8CAF /* RedditEndpoints.swift in Sources */,
+				A79D816829A67CD8001A8CAF /* AppConfig.swift in Sources */,
+				A79D817829A69733001A8CAF /* ListingPage.swift in Sources */,
+				A79D817329A67E14001A8CAF /* WebService.swift in Sources */,
+				A79D816E29A67DBF001A8CAF /* ListingsService.swift in Sources */,
+				A79D817F29A69DB9001A8CAF /* ListingDetailViewController.swift in Sources */,
+				A79D816529A67B3F001A8CAF /* Listing.swift in Sources */,
+				A79D816B29A67D56001A8CAF /* Logging.swift in Sources */,
+				A79D817129A67DD0001A8CAF /* RESTListingsService.swift in Sources */,
+				A79D815629A67527001A8CAF /* StringConstants.swift in Sources */,
+				A79D816129A67A32001A8CAF /* SectionCell.swift in Sources */,
+				A79D816329A67A4F001A8CAF /* CellConfiguring.swift in Sources */,
+				A79D817A29A6978D001A8CAF /* ListingViewModel.swift in Sources */,
 				A79D813729A66FA7001A8CAF /* AppDelegate.swift in Sources */,
+				A79D815C29A67893001A8CAF /* Section.swift in Sources */,
 				A79D813929A66FA7001A8CAF /* SceneDelegate.swift in Sources */,
+				A79D815329A674F0001A8CAF /* ListingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

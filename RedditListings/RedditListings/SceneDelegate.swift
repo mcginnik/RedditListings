@@ -17,9 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).        
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        self.injectServices()
+        
         let window = UIWindow(windowScene: windowScene)
         /// 4. Set the root view controller of the window with your view controller
-        window.rootViewController = UINavigationController(rootViewController: HomeViewController())
+        window.rootViewController = UINavigationController(rootViewController: ListingsViewController())
         /// 5. Set the window and call makeKeyAndVisible()
         self.window = window
         window.makeKeyAndVisible()
@@ -56,3 +59,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+
+// MARK: Dependency Injection of services
+extension SceneDelegate {
+    
+    // MARK: Service Setup
+    /// These would ideally not be setup this way but injected with a DI service that confirms that each one has a value at compilation time... I already have a setup for this that I built and there are other solutions out there..  For now just injecting them manually here
+    private func injectServices(){
+        injectListingsService()
+    }
+    
+    private func injectListingsService() {
+        ListingsService.setup(with: RESTListingsService())
+    }
+}
