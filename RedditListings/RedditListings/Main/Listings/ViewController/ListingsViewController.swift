@@ -113,6 +113,9 @@ extension ListingsViewController: UICollectionViewDataSource, UICollectionViewDe
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SectionCell.reuseID, for: indexPath) as! SectionCell
         cell.configure(with: listings[indexPath.item])
+        if indexPath.item == listings.count - 1{
+            fetchData()
+        }
         return cell
     }
     

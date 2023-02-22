@@ -9,4 +9,9 @@ import Foundation
 
 struct RedditEndpoints {
     static let allNew = "/r/all/new.json"
+    
+    // Token separators
+    static let pagingLimitToken = "limit="
+    static let pagingCursorToken = "after="
+
 }
