@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24FB467865FDDAB0FED553B8 /* Pods_RedditListings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA83E6BF272435E433A07FA /* Pods_RedditListings.framework */; };
 		A79D813729A66FA7001A8CAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D813629A66FA7001A8CAF /* AppDelegate.swift */; };
 		A79D813929A66FA7001A8CAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D813829A66FA7001A8CAF /* SceneDelegate.swift */; };
 		A79D813B29A66FA7001A8CAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D813A29A66FA7001A8CAF /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7AA83E6BF272435E433A07FA /* Pods_RedditListings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RedditListings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79D813329A66FA7001A8CAF /* RedditListings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditListings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79D813629A66FA7001A8CAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A79D813829A66FA7001A8CAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		A79D813F29A66FA9001A8CAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A79D814229A66FA9001A8CAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A79D814429A66FA9001A8CAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B46D8E42F0AD31F82B04BF19 /* Pods-RedditListings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditListings.release.xcconfig"; path = "Target Support Files/Pods-RedditListings/Pods-RedditListings.release.xcconfig"; sourceTree = "<group>"; };
+		DFFFD4554770B21DEA2761D8 /* Pods-RedditListings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditListings.debug.xcconfig"; path = "Target Support Files/Pods-RedditListings/Pods-RedditListings.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24FB467865FDDAB0FED553B8 /* Pods_RedditListings.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				A79D813529A66FA7001A8CAF /* RedditListings */,
 				A79D813429A66FA7001A8CAF /* Products */,
+				AE81D02BB96826AFA239CFA6 /* Pods */,
+				DA24ED2A387E4DA2968C0D1B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = RedditListings;
 			sourceTree = "<group>";
 		};
+		AE81D02BB96826AFA239CFA6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DFFFD4554770B21DEA2761D8 /* Pods-RedditListings.debug.xcconfig */,
+				B46D8E42F0AD31F82B04BF19 /* Pods-RedditListings.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DA24ED2A387E4DA2968C0D1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7AA83E6BF272435E433A07FA /* Pods_RedditListings.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +99,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A79D814729A66FA9001A8CAF /* Build configuration list for PBXNativeTarget "RedditListings" */;
 			buildPhases = (
+				621F96DD543F2B5A910C2CBC /* [CP] Check Pods Manifest.lock */,
 				A79D812F29A66FA7001A8CAF /* Sources */,
 				A79D813029A66FA7001A8CAF /* Frameworks */,
 				A79D813129A66FA7001A8CAF /* Resources */,
@@ -132,6 +158,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		621F96DD543F2B5A910C2CBC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RedditListings-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A79D812F29A66FA7001A8CAF /* Sources */ = {
@@ -282,6 +333,7 @@
 		};
 		A79D814829A66FA9001A8CAF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFFFD4554770B21DEA2761D8 /* Pods-RedditListings.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +362,7 @@
 		};
 		A79D814929A66FA9001A8CAF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B46D8E42F0AD31F82B04BF19 /* Pods-RedditListings.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
