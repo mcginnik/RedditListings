@@ -14,10 +14,19 @@ class ListingsViewModel: ObservableObject {
     
     let baseURL: String = AppConfig.shared.baseURLString
     let endPoint: String
+    
+    var fullURL: String {
+        var url = baseURL + endPoint + "?\(RedditEndpoints.pagingLimitToken)\(pagingSize)"
+        if let lastID = listings.last?.id {
+            url += "&\(RedditEndpoints.pagingCursorToken)\(lastID)"
+        }
+        return url
+    }
+    
     var pagingSize: Int = 20
     
     var cellHeight: CGFloat {
-        64
+        80
     }
     
     @Published var listings: [ListingViewModel] = []
@@ -32,7 +41,7 @@ class ListingsViewModel: ObservableObject {
     
     func fetchListings(){
         
-        ListingsService.shared.fetchListings(from: getConfiguredURL()) { [weak self] res in
+        ListingsService.shared.fetchListings(from: fullURL) { [weak self] res in
             switch res {
             case .success(let listingPage):
                 let vms = listingPage.listings.compactMap{ListingViewModel(withData: $0.data)}
@@ -43,14 +52,6 @@ class ListingsViewModel: ObservableObject {
                 Logging.LogMe("... FAILED! \(error)")
             }
         }
-    }
-    
-    func getConfiguredURL() -> String {
-        var url = baseURL + endPoint + "?\(RedditEndpoints.pagingLimitToken)\(pagingSize)"
-        if let lastID = listings.last?.id {
-            url += "&\(RedditEndpoints.pagingCursorToken)\(lastID)"
-        }
-        return url
     }
     
 }

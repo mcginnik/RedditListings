@@ -112,7 +112,11 @@ extension ListingsViewController: UICollectionViewDataSource, UICollectionViewDe
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SectionCell.reuseID, for: indexPath) as! SectionCell
-        cell.configure(with: listings[indexPath.item])
+        let listing = listings[indexPath.item]
+        
+        cell.configure(with: listing)
+        
+        // Fetch Next Page if we are at the end of the list
         if indexPath.item == listings.count - 1{
             fetchData()
         }

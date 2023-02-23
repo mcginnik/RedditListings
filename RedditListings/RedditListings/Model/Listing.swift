@@ -18,5 +18,5 @@ struct ListingData: Decodable, Equatable, Hashable {
     let author: String
     let subtitle: String?
     let body: String?
-    let url: String?
+    let thumbnail: String?
 }

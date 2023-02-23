@@ -5,7 +5,7 @@
 //  Created by Kyle McGinnis on 2/22/23.
 //
 
-import Foundation
+import UIKit
 import Combine
 
 class ListingViewModel: ObservableObject {
@@ -26,6 +26,10 @@ class ListingViewModel: ObservableObject {
         return listingData.author
     }
     
+    var formattedAuthor: String {
+        return "@\(author)"
+    }
+    
     var subtitle: String? {
         return listingData.subtitle
     }
@@ -34,17 +38,31 @@ class ListingViewModel: ObservableObject {
         return listingData.body
     }
     
-    var url: URL? {
-        if let url = listingData.url {
-            return URL(string: url)
-        }
-        return nil
+    var imageURL: String? {
+        listingData.thumbnail
     }
-    
+            
     // MARK: Lifecycle
     
     init(withData listingData: ListingData){
         self.listingData = listingData
+    }
+    
+    func fetchImage(completion: @escaping (Result<(UIImage, String), Error>) -> Void){
+        guard let imageURL = imageURL else { return }
+        ImageService.shared.fetchImage(imageURL) { res in
+            DispatchQueue.main.async { [ weak self ] in
+                guard let strongSelf = self else { return }
+                switch res {
+                case .success(let image):
+                    completion(.success((image, imageURL)))
+                    Logging.LogMe("Success!  \(strongSelf.title): imageurl string \(imageURL)")
+                case .failure(let error):
+                    completion(.failure(error))
+                    Logging.LogMe("Failed! \(error)")
+                }
+            }
+        }
     }
 
     

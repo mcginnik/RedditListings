@@ -28,6 +28,28 @@
 		A79D817829A69733001A8CAF /* ListingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D817729A69733001A8CAF /* ListingPage.swift */; };
 		A79D817A29A6978D001A8CAF /* ListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D817929A6978D001A8CAF /* ListingViewModel.swift */; };
 		A79D817F29A69DB9001A8CAF /* ListingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D817E29A69DB9001A8CAF /* ListingDetailViewController.swift */; };
+		A79D819B29A6D7C1001A8CAF /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A79D818129A6D7C1001A8CAF /* LICENSE */; };
+		A79D819C29A6D7C1001A8CAF /* LBTAFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D818429A6D7C1001A8CAF /* LBTAFormController.swift */; };
+		A79D819D29A6D7C1001A8CAF /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D818629A6D7C1001A8CAF /* CircularImageView.swift */; };
+		A79D819E29A6D7C1001A8CAF /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D818829A6D7C1001A8CAF /* UIStackView.swift */; };
+		A79D819F29A6D7C1001A8CAF /* IndentedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D818929A6D7C1001A8CAF /* IndentedTextField.swift */; };
+		A79D81A029A6D7C1001A8CAF /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D818A29A6D7C1001A8CAF /* UIView+Layout.swift */; };
+		A79D81A129A6D7C1001A8CAF /* AspectFitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D818B29A6D7C1001A8CAF /* AspectFitImageView.swift */; };
+		A79D81A229A6D7C1001A8CAF /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D818C29A6D7C1001A8CAF /* UIButton.swift */; };
+		A79D81A329A6D7C1001A8CAF /* UIView+Stacking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D818D29A6D7C1001A8CAF /* UIView+Stacking.swift */; };
+		A79D81A429A6D7C1001A8CAF /* UITextField+Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D818E29A6D7C1001A8CAF /* UITextField+Tools.swift */; };
+		A79D81A529A6D7C1001A8CAF /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D818F29A6D7C1001A8CAF /* UILabel.swift */; };
+		A79D81A629A6D7C1001A8CAF /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D819029A6D7C1001A8CAF /* UITextView.swift */; };
+		A79D81A729A6D7C1001A8CAF /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D819129A6D7C1001A8CAF /* UIColor+Helpers.swift */; };
+		A79D81A829A6D7C1001A8CAF /* AnchoredConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D819229A6D7C1001A8CAF /* AnchoredConstraints.swift */; };
+		A79D81A929A6D7C1001A8CAF /* LBTAListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D819429A6D7C1001A8CAF /* LBTAListController.swift */; };
+		A79D81AA29A6D7C1001A8CAF /* LBTAListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D819529A6D7C1001A8CAF /* LBTAListCell.swift */; };
+		A79D81AB29A6D7C1001A8CAF /* LBTAListHeaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D819629A6D7C1001A8CAF /* LBTAListHeaderController.swift */; };
+		A79D81AC29A6D7C1001A8CAF /* LBTAListHeaderFooterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D819729A6D7C1001A8CAF /* LBTAListHeaderFooterController.swift */; };
+		A79D81AD29A6D7C1001A8CAF /* LBTATools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D819929A6D7C1001A8CAF /* LBTATools.swift */; };
+		A79D81AE29A6D7C1001A8CAF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A79D819A29A6D7C1001A8CAF /* README.md */; };
+		A79D81B029A6DE7D001A8CAF /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81AF29A6DE7D001A8CAF /* ImageService.swift */; };
+		A79D81B229A6F3D8001A8CAF /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81B129A6F3D8001A8CAF /* ImageConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +76,28 @@
 		A79D817729A69733001A8CAF /* ListingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingPage.swift; sourceTree = "<group>"; };
 		A79D817929A6978D001A8CAF /* ListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewModel.swift; sourceTree = "<group>"; };
 		A79D817E29A69DB9001A8CAF /* ListingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailViewController.swift; sourceTree = "<group>"; };
+		A79D818129A6D7C1001A8CAF /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		A79D818429A6D7C1001A8CAF /* LBTAFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBTAFormController.swift; sourceTree = "<group>"; };
+		A79D818629A6D7C1001A8CAF /* CircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
+		A79D818829A6D7C1001A8CAF /* UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		A79D818929A6D7C1001A8CAF /* IndentedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndentedTextField.swift; sourceTree = "<group>"; };
+		A79D818A29A6D7C1001A8CAF /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		A79D818B29A6D7C1001A8CAF /* AspectFitImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectFitImageView.swift; sourceTree = "<group>"; };
+		A79D818C29A6D7C1001A8CAF /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		A79D818D29A6D7C1001A8CAF /* UIView+Stacking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Stacking.swift"; sourceTree = "<group>"; };
+		A79D818E29A6D7C1001A8CAF /* UITextField+Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Tools.swift"; sourceTree = "<group>"; };
+		A79D818F29A6D7C1001A8CAF /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		A79D819029A6D7C1001A8CAF /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
+		A79D819129A6D7C1001A8CAF /* UIColor+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
+		A79D819229A6D7C1001A8CAF /* AnchoredConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchoredConstraints.swift; sourceTree = "<group>"; };
+		A79D819429A6D7C1001A8CAF /* LBTAListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBTAListController.swift; sourceTree = "<group>"; };
+		A79D819529A6D7C1001A8CAF /* LBTAListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBTAListCell.swift; sourceTree = "<group>"; };
+		A79D819629A6D7C1001A8CAF /* LBTAListHeaderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBTAListHeaderController.swift; sourceTree = "<group>"; };
+		A79D819729A6D7C1001A8CAF /* LBTAListHeaderFooterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBTAListHeaderFooterController.swift; sourceTree = "<group>"; };
+		A79D819929A6D7C1001A8CAF /* LBTATools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBTATools.swift; sourceTree = "<group>"; };
+		A79D819A29A6D7C1001A8CAF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A79D81AF29A6DE7D001A8CAF /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		A79D81B129A6F3D8001A8CAF /* ImageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConstants.swift; sourceTree = "<group>"; };
 		B46D8E42F0AD31F82B04BF19 /* Pods-RedditListings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditListings.release.xcconfig"; path = "Target Support Files/Pods-RedditListings/Pods-RedditListings.release.xcconfig"; sourceTree = "<group>"; };
 		DFFFD4554770B21DEA2761D8 /* Pods-RedditListings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditListings.debug.xcconfig"; path = "Target Support Files/Pods-RedditListings/Pods-RedditListings.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +173,7 @@
 			children = (
 				A79D817429A6805A001A8CAF /* Reddit */,
 				A79D817229A67E14001A8CAF /* WebService.swift */,
+				A79D81AF29A6DE7D001A8CAF /* ImageService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -181,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				A79D815529A67527001A8CAF /* StringConstants.swift */,
+				A79D81B129A6F3D8001A8CAF /* ImageConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -198,6 +244,7 @@
 		A79D815D29A67A04001A8CAF /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A79D818029A6D7C1001A8CAF /* LBTATools */,
 				A79D815E29A67A0A001A8CAF /* CollectionView */,
 			);
 			path = UI;
@@ -284,6 +331,81 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		A79D818029A6D7C1001A8CAF /* LBTATools */ = {
+			isa = PBXGroup;
+			children = (
+				A79D818129A6D7C1001A8CAF /* LICENSE */,
+				A79D818229A6D7C1001A8CAF /* Source */,
+				A79D819A29A6D7C1001A8CAF /* README.md */,
+			);
+			path = LBTATools;
+			sourceTree = "<group>";
+		};
+		A79D818229A6D7C1001A8CAF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A79D818329A6D7C1001A8CAF /* Form */,
+				A79D818529A6D7C1001A8CAF /* UIKitSubclasses */,
+				A79D818729A6D7C1001A8CAF /* Extensions */,
+				A79D819129A6D7C1001A8CAF /* UIColor+Helpers.swift */,
+				A79D819229A6D7C1001A8CAF /* AnchoredConstraints.swift */,
+				A79D819329A6D7C1001A8CAF /* ListController */,
+				A79D819829A6D7C1001A8CAF /* LBTATools */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		A79D818329A6D7C1001A8CAF /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				A79D818429A6D7C1001A8CAF /* LBTAFormController.swift */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		A79D818529A6D7C1001A8CAF /* UIKitSubclasses */ = {
+			isa = PBXGroup;
+			children = (
+				A79D818629A6D7C1001A8CAF /* CircularImageView.swift */,
+			);
+			path = UIKitSubclasses;
+			sourceTree = "<group>";
+		};
+		A79D818729A6D7C1001A8CAF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A79D818829A6D7C1001A8CAF /* UIStackView.swift */,
+				A79D818929A6D7C1001A8CAF /* IndentedTextField.swift */,
+				A79D818A29A6D7C1001A8CAF /* UIView+Layout.swift */,
+				A79D818B29A6D7C1001A8CAF /* AspectFitImageView.swift */,
+				A79D818C29A6D7C1001A8CAF /* UIButton.swift */,
+				A79D818D29A6D7C1001A8CAF /* UIView+Stacking.swift */,
+				A79D818E29A6D7C1001A8CAF /* UITextField+Tools.swift */,
+				A79D818F29A6D7C1001A8CAF /* UILabel.swift */,
+				A79D819029A6D7C1001A8CAF /* UITextView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A79D819329A6D7C1001A8CAF /* ListController */ = {
+			isa = PBXGroup;
+			children = (
+				A79D819429A6D7C1001A8CAF /* LBTAListController.swift */,
+				A79D819529A6D7C1001A8CAF /* LBTAListCell.swift */,
+				A79D819629A6D7C1001A8CAF /* LBTAListHeaderController.swift */,
+				A79D819729A6D7C1001A8CAF /* LBTAListHeaderFooterController.swift */,
+			);
+			path = ListController;
+			sourceTree = "<group>";
+		};
+		A79D819829A6D7C1001A8CAF /* LBTATools */ = {
+			isa = PBXGroup;
+			children = (
+				A79D819929A6D7C1001A8CAF /* LBTATools.swift */,
+			);
+			path = LBTATools;
+			sourceTree = "<group>";
+		};
 		AE81D02BB96826AFA239CFA6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,7 +482,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A79D819B29A6D7C1001A8CAF /* LICENSE in Resources */,
 				A79D814329A66FA9001A8CAF /* LaunchScreen.storyboard in Resources */,
+				A79D81AE29A6D7C1001A8CAF /* README.md in Resources */,
 				A79D814029A66FA9001A8CAF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,23 +522,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				A79D815929A676AB001A8CAF /* ListingsViewModel.swift in Sources */,
+				A79D81A729A6D7C1001A8CAF /* UIColor+Helpers.swift in Sources */,
+				A79D81AD29A6D7C1001A8CAF /* LBTATools.swift in Sources */,
 				A79D817629A6806C001A8CAF /* RedditEndpoints.swift in Sources */,
+				A79D81A529A6D7C1001A8CAF /* UILabel.swift in Sources */,
+				A79D819C29A6D7C1001A8CAF /* LBTAFormController.swift in Sources */,
 				A79D816829A67CD8001A8CAF /* AppConfig.swift in Sources */,
 				A79D817829A69733001A8CAF /* ListingPage.swift in Sources */,
+				A79D81A229A6D7C1001A8CAF /* UIButton.swift in Sources */,
+				A79D81A629A6D7C1001A8CAF /* UITextView.swift in Sources */,
+				A79D819D29A6D7C1001A8CAF /* CircularImageView.swift in Sources */,
 				A79D817329A67E14001A8CAF /* WebService.swift in Sources */,
 				A79D816E29A67DBF001A8CAF /* ListingsService.swift in Sources */,
+				A79D81B229A6F3D8001A8CAF /* ImageConstants.swift in Sources */,
 				A79D817F29A69DB9001A8CAF /* ListingDetailViewController.swift in Sources */,
+				A79D81AC29A6D7C1001A8CAF /* LBTAListHeaderFooterController.swift in Sources */,
+				A79D81A829A6D7C1001A8CAF /* AnchoredConstraints.swift in Sources */,
 				A79D816529A67B3F001A8CAF /* Listing.swift in Sources */,
 				A79D816B29A67D56001A8CAF /* Logging.swift in Sources */,
+				A79D81A429A6D7C1001A8CAF /* UITextField+Tools.swift in Sources */,
 				A79D817129A67DD0001A8CAF /* RESTListingsService.swift in Sources */,
+				A79D81A129A6D7C1001A8CAF /* AspectFitImageView.swift in Sources */,
+				A79D81A329A6D7C1001A8CAF /* UIView+Stacking.swift in Sources */,
+				A79D81A029A6D7C1001A8CAF /* UIView+Layout.swift in Sources */,
 				A79D815629A67527001A8CAF /* StringConstants.swift in Sources */,
+				A79D81A929A6D7C1001A8CAF /* LBTAListController.swift in Sources */,
 				A79D816129A67A32001A8CAF /* SectionCell.swift in Sources */,
 				A79D816329A67A4F001A8CAF /* CellConfiguring.swift in Sources */,
 				A79D817A29A6978D001A8CAF /* ListingViewModel.swift in Sources */,
+				A79D819E29A6D7C1001A8CAF /* UIStackView.swift in Sources */,
 				A79D813729A66FA7001A8CAF /* AppDelegate.swift in Sources */,
 				A79D815C29A67893001A8CAF /* Section.swift in Sources */,
+				A79D81B029A6DE7D001A8CAF /* ImageService.swift in Sources */,
+				A79D81AB29A6D7C1001A8CAF /* LBTAListHeaderController.swift in Sources */,
 				A79D813929A66FA7001A8CAF /* SceneDelegate.swift in Sources */,
+				A79D819F29A6D7C1001A8CAF /* IndentedTextField.swift in Sources */,
 				A79D815329A674F0001A8CAF /* ListingsViewController.swift in Sources */,
+				A79D81AA29A6D7C1001A8CAF /* LBTAListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
