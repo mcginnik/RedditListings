@@ -10,7 +10,7 @@ import Foundation
 
 class RESTListingsService: ListingsServiceProtocol {
     
-    func fetchListings(from urlString: String,
+    func fetchPage(from urlString: String,
                        completion: @escaping (Result<ListingPage, Error>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.URLFormatting))

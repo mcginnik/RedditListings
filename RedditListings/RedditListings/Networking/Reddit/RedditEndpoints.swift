@@ -8,6 +8,10 @@
 import Foundation
 
 struct RedditEndpoints {
+    
+    static let baseURL = "https://www.reddit.com"
+    
+    // End Points
     static let allNew = "/r/all/new.json"
     
     // Token separators

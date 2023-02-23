@@ -23,7 +23,7 @@ public enum Anchor {
 extension UIView {
     
     @discardableResult
-    open func anchor(_ anchors: Anchor...) -> AnchoredConstraints {
+    public func anchor(_ anchors: Anchor...) -> AnchoredConstraints {
         translatesAutoresizingMaskIntoConstraints = false
         var anchoredConstraints = AnchoredConstraints()
         anchors.forEach { anchor in
@@ -58,7 +58,7 @@ extension UIView {
     }
     
     @discardableResult
-    open func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) -> AnchoredConstraints {
+    public func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) -> AnchoredConstraints {
         
         translatesAutoresizingMaskIntoConstraints = false
         var anchoredConstraints = AnchoredConstraints()
@@ -93,7 +93,7 @@ extension UIView {
     }
     
     @discardableResult
-    open func fillSuperview(padding: UIEdgeInsets = .zero) -> AnchoredConstraints {
+    public func fillSuperview(padding: UIEdgeInsets = .zero) -> AnchoredConstraints {
         translatesAutoresizingMaskIntoConstraints = false
         let anchoredConstraints = AnchoredConstraints()
         guard let superviewTopAnchor = superview?.topAnchor,
@@ -107,7 +107,7 @@ extension UIView {
     }
     
     @discardableResult
-    open func fillSuperviewSafeAreaLayoutGuide(padding: UIEdgeInsets = .zero) -> AnchoredConstraints {
+    public func fillSuperviewSafeAreaLayoutGuide(padding: UIEdgeInsets = .zero) -> AnchoredConstraints {
         let anchoredConstraints = AnchoredConstraints()
         if #available(iOS 11.0, *) {
             guard let superviewTopAnchor = superview?.safeAreaLayoutGuide.topAnchor,
@@ -123,7 +123,7 @@ extension UIView {
         }
     }
     
-    open func centerInSuperview(size: CGSize = .zero) {
+    public func centerInSuperview(size: CGSize = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superviewCenterXAnchor = superview?.centerXAnchor {
             centerXAnchor.constraint(equalTo: superviewCenterXAnchor).isActive = true
@@ -142,24 +142,24 @@ extension UIView {
         }
     }
     
-    open func centerXTo(_ anchor: NSLayoutXAxisAnchor) {
+    public func centerXTo(_ anchor: NSLayoutXAxisAnchor) {
         translatesAutoresizingMaskIntoConstraints = false
         centerXAnchor.constraint(equalTo: anchor).isActive = true
     }
     
-    open func centerYTo(_ anchor: NSLayoutYAxisAnchor) {
+    public func centerYTo(_ anchor: NSLayoutYAxisAnchor) {
         translatesAutoresizingMaskIntoConstraints = false
         centerYAnchor.constraint(equalTo: anchor).isActive = true
     }
     
-    open func centerXToSuperview() {
+    public func centerXToSuperview() {
         translatesAutoresizingMaskIntoConstraints = false
         if let superviewCenterXAnchor = superview?.centerXAnchor {
             centerXAnchor.constraint(equalTo: superviewCenterXAnchor).isActive = true
         }
     }
     
-    open func centerYToSuperview() {
+    public func centerYToSuperview() {
         translatesAutoresizingMaskIntoConstraints = false
         if let superviewCenterYAnchor = superview?.centerYAnchor {
             centerYAnchor.constraint(equalTo: superviewCenterYAnchor).isActive = true
@@ -167,7 +167,7 @@ extension UIView {
     }
     
     @discardableResult
-    open func constrainHeight(_ constant: CGFloat) -> AnchoredConstraints {
+    public func constrainHeight(_ constant: CGFloat) -> AnchoredConstraints {
         translatesAutoresizingMaskIntoConstraints = false
         var anchoredConstraints = AnchoredConstraints()
         anchoredConstraints.height = heightAnchor.constraint(equalToConstant: constant)
@@ -176,7 +176,7 @@ extension UIView {
     }
     
     @discardableResult
-    open func constrainWidth(_ constant: CGFloat) -> AnchoredConstraints {
+    public func constrainWidth(_ constant: CGFloat) -> AnchoredConstraints {
         translatesAutoresizingMaskIntoConstraints = false
         var anchoredConstraints = AnchoredConstraints()
         anchoredConstraints.width = widthAnchor.constraint(equalToConstant: constant)
@@ -184,7 +184,7 @@ extension UIView {
         return anchoredConstraints
     }
     
-    open func setupShadow(opacity: Float = 0, radius: CGFloat = 0, offset: CGSize = .zero, color: UIColor = .black) {
+    public func setupShadow(opacity: Float = 0, radius: CGFloat = 0, offset: CGSize = .zero, color: UIColor = .black) {
         layer.shadowOpacity = opacity
         layer.shadowRadius = radius
         layer.shadowOffset = offset

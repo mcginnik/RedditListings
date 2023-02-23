@@ -1,5 +1,5 @@
 //
-//  SectionCell.swift
+//  ListingRowCell.swift
 //  RedditListings
 //
 //  Created by Kyle McGinnis on 2/22/23.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class SectionCell: UICollectionViewCell, CellConfiguring {    
+class ListingRowCell: UICollectionViewCell, CellConfiguring {
     
     // MARK: Properties
     
-    static let reuseID: String = "SectionCell"
+    static let reuseID: String = "ListingRowCell"
     
     let titleLabel = UILabel()
     private let subtitleLabel = UILabel()

@@ -34,10 +34,6 @@ class ListingViewModel: ObservableObject {
         return listingData.subtitle
     }
     
-    var body: String? {
-        return listingData.body
-    }
-    
     var imageURL: String? {
         listingData.thumbnail
     }

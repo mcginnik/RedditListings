@@ -16,7 +16,7 @@
 		A79D815629A67527001A8CAF /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D815529A67527001A8CAF /* StringConstants.swift */; };
 		A79D815929A676AB001A8CAF /* ListingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D815829A676AB001A8CAF /* ListingsViewModel.swift */; };
 		A79D815C29A67893001A8CAF /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D815B29A67893001A8CAF /* Section.swift */; };
-		A79D816129A67A32001A8CAF /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816029A67A32001A8CAF /* SectionCell.swift */; };
+		A79D816129A67A32001A8CAF /* ListingRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816029A67A32001A8CAF /* ListingRowCell.swift */; };
 		A79D816329A67A4F001A8CAF /* CellConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816229A67A4F001A8CAF /* CellConfiguring.swift */; };
 		A79D816529A67B3F001A8CAF /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816429A67B3F001A8CAF /* Listing.swift */; };
 		A79D816829A67CD8001A8CAF /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816729A67CD8001A8CAF /* AppConfig.swift */; };
@@ -50,6 +50,9 @@
 		A79D81AE29A6D7C1001A8CAF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A79D819A29A6D7C1001A8CAF /* README.md */; };
 		A79D81B029A6DE7D001A8CAF /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81AF29A6DE7D001A8CAF /* ImageService.swift */; };
 		A79D81B229A6F3D8001A8CAF /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81B129A6F3D8001A8CAF /* ImageConstants.swift */; };
+		A79D81B629A7148F001A8CAF /* LIstingDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81B529A7148F001A8CAF /* LIstingDetailService.swift */; };
+		A79D81B829A71532001A8CAF /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81B729A71532001A8CAF /* Comment.swift */; };
+		A79D81BA29A7158D001A8CAF /* RESTListingDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81B929A7158D001A8CAF /* RESTListingDetailService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +67,7 @@
 		A79D815529A67527001A8CAF /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		A79D815829A676AB001A8CAF /* ListingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsViewModel.swift; sourceTree = "<group>"; };
 		A79D815B29A67893001A8CAF /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
-		A79D816029A67A32001A8CAF /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
+		A79D816029A67A32001A8CAF /* ListingRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingRowCell.swift; sourceTree = "<group>"; };
 		A79D816229A67A4F001A8CAF /* CellConfiguring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfiguring.swift; sourceTree = "<group>"; };
 		A79D816429A67B3F001A8CAF /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		A79D816729A67CD8001A8CAF /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -98,6 +101,9 @@
 		A79D819A29A6D7C1001A8CAF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A79D81AF29A6DE7D001A8CAF /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		A79D81B129A6F3D8001A8CAF /* ImageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConstants.swift; sourceTree = "<group>"; };
+		A79D81B529A7148F001A8CAF /* LIstingDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIstingDetailService.swift; sourceTree = "<group>"; };
+		A79D81B729A71532001A8CAF /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		A79D81B929A7158D001A8CAF /* RESTListingDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTListingDetailService.swift; sourceTree = "<group>"; };
 		B46D8E42F0AD31F82B04BF19 /* Pods-RedditListings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditListings.release.xcconfig"; path = "Target Support Files/Pods-RedditListings/Pods-RedditListings.release.xcconfig"; sourceTree = "<group>"; };
 		DFFFD4554770B21DEA2761D8 /* Pods-RedditListings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditListings.debug.xcconfig"; path = "Target Support Files/Pods-RedditListings/Pods-RedditListings.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +198,7 @@
 		A79D814E29A674AC001A8CAF /* ListingDetail */ = {
 			isa = PBXGroup;
 			children = (
+				A79D81B329A71418001A8CAF /* API */,
 				A79D817D29A69D86001A8CAF /* ViewModel */,
 				A79D817C29A69D82001A8CAF /* View */,
 				A79D817B29A69D74001A8CAF /* ViewController */,
@@ -202,6 +209,7 @@
 		A79D814F29A674BE001A8CAF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A79D816029A67A32001A8CAF /* ListingRowCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -237,6 +245,7 @@
 				A79D815B29A67893001A8CAF /* Section.swift */,
 				A79D816429A67B3F001A8CAF /* Listing.swift */,
 				A79D817729A69733001A8CAF /* ListingPage.swift */,
+				A79D81B729A71532001A8CAF /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,7 +271,6 @@
 		A79D815F29A67A0F001A8CAF /* SectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				A79D816029A67A32001A8CAF /* SectionCell.swift */,
 			);
 			path = SectionCell;
 			sourceTree = "<group>";
@@ -406,6 +414,23 @@
 			path = LBTATools;
 			sourceTree = "<group>";
 		};
+		A79D81B329A71418001A8CAF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A79D81B429A71422001A8CAF /* RESTListingDetailService */,
+				A79D81B529A7148F001A8CAF /* LIstingDetailService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A79D81B429A71422001A8CAF /* RESTListingDetailService */ = {
+			isa = PBXGroup;
+			children = (
+				A79D81B929A7158D001A8CAF /* RESTListingDetailService.swift */,
+			);
+			path = RESTListingDetailService;
+			sourceTree = "<group>";
+		};
 		AE81D02BB96826AFA239CFA6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -524,9 +549,11 @@
 				A79D815929A676AB001A8CAF /* ListingsViewModel.swift in Sources */,
 				A79D81A729A6D7C1001A8CAF /* UIColor+Helpers.swift in Sources */,
 				A79D81AD29A6D7C1001A8CAF /* LBTATools.swift in Sources */,
+				A79D81BA29A7158D001A8CAF /* RESTListingDetailService.swift in Sources */,
 				A79D817629A6806C001A8CAF /* RedditEndpoints.swift in Sources */,
 				A79D81A529A6D7C1001A8CAF /* UILabel.swift in Sources */,
 				A79D819C29A6D7C1001A8CAF /* LBTAFormController.swift in Sources */,
+				A79D81B629A7148F001A8CAF /* LIstingDetailService.swift in Sources */,
 				A79D816829A67CD8001A8CAF /* AppConfig.swift in Sources */,
 				A79D817829A69733001A8CAF /* ListingPage.swift in Sources */,
 				A79D81A229A6D7C1001A8CAF /* UIButton.swift in Sources */,
@@ -547,7 +574,7 @@
 				A79D81A029A6D7C1001A8CAF /* UIView+Layout.swift in Sources */,
 				A79D815629A67527001A8CAF /* StringConstants.swift in Sources */,
 				A79D81A929A6D7C1001A8CAF /* LBTAListController.swift in Sources */,
-				A79D816129A67A32001A8CAF /* SectionCell.swift in Sources */,
+				A79D816129A67A32001A8CAF /* ListingRowCell.swift in Sources */,
 				A79D816329A67A4F001A8CAF /* CellConfiguring.swift in Sources */,
 				A79D817A29A6978D001A8CAF /* ListingViewModel.swift in Sources */,
 				A79D819E29A6D7C1001A8CAF /* UIStackView.swift in Sources */,
@@ -555,6 +582,7 @@
 				A79D815C29A67893001A8CAF /* Section.swift in Sources */,
 				A79D81B029A6DE7D001A8CAF /* ImageService.swift in Sources */,
 				A79D81AB29A6D7C1001A8CAF /* LBTAListHeaderController.swift in Sources */,
+				A79D81B829A71532001A8CAF /* Comment.swift in Sources */,
 				A79D813929A66FA7001A8CAF /* SceneDelegate.swift in Sources */,
 				A79D819F29A6D7C1001A8CAF /* IndentedTextField.swift in Sources */,
 				A79D815329A674F0001A8CAF /* ListingsViewController.swift in Sources */,

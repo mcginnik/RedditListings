@@ -23,7 +23,7 @@ class ListingsViewModel: ObservableObject {
         return url
     }
     
-    var pagingSize: Int = 20
+    let pagingSize: Int
     
     var cellHeight: CGFloat {
         80
@@ -33,15 +33,16 @@ class ListingsViewModel: ObservableObject {
     
     // MARK: Lifecycle
     
-    init(withEndpoint endPoint: String){
+    init(withEndpoint endPoint: String, pagingSize: Int = 20){
         self.endPoint = endPoint
+        self.pagingSize = pagingSize
     }
     
     // MARK: API
     
-    func fetchListings(){
+    func fetchNextPage(){
         
-        ListingsService.shared.fetchListings(from: fullURL) { [weak self] res in
+        ListingsService.shared.fetchPage(from: fullURL) { [weak self] res in
             switch res {
             case .success(let listingPage):
                 let vms = listingPage.listings.compactMap{ListingViewModel(withData: $0.data)}

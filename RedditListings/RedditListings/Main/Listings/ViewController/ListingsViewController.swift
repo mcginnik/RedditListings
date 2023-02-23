@@ -47,7 +47,7 @@ class ListingsViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupSubscriptions()
-        fetchData()
+        fetchNextPage()
     }
     
     private func setupViews(){
@@ -58,7 +58,7 @@ class ListingsViewController: UIViewController {
     
     private func setupCollectionView(){
         view.addSubview(collectionView)
-        collectionView.register(SectionCell.self, forCellWithReuseIdentifier: SectionCell.reuseID)
+        collectionView.register(ListingRowCell.self, forCellWithReuseIdentifier: ListingRowCell.reuseID)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.reloadData()
@@ -82,8 +82,15 @@ class ListingsViewController: UIViewController {
     
     // MARK: API
     
-    private func fetchData(){
-        viewModel.fetchListings()
+    private func didLoadCellAtIndex(_ index: Int){
+        // Fetch Next Page if we are at the end of the list
+        if index == listings.count - 1{
+            fetchNextPage()
+        }
+    }
+    
+    private func fetchNextPage(){
+        viewModel.fetchNextPage()
     }
 
 }
@@ -111,15 +118,14 @@ extension ListingsViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SectionCell.reuseID, for: indexPath) as! SectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListingRowCell.reuseID,
+                                                      for: indexPath) as! ListingRowCell
         let listing = listings[indexPath.item]
         
         cell.configure(with: listing)
         
-        // Fetch Next Page if we are at the end of the list
-        if indexPath.item == listings.count - 1{
-            fetchData()
-        }
+        didLoadCellAtIndex(indexPath.item)
+        
         return cell
     }
     

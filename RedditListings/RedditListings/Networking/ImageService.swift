@@ -39,9 +39,9 @@ class ImageService {
     
         if let url = URL(string: formattedURLString) {
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                Logging.LogMe("RESPONSE FROM API: \(response)")
+                Logging.LogMe("RESPONSE FROM API: \(String(describing: response))")
                 if error != nil {
-                    Logging.LogMe("ERROR LOADING IMAGES FROM URL: \(error)")
+                    Logging.LogMe("ERROR LOADING IMAGES FROM URL: \(String(describing: error))")
                     completion(.failure(ImageServiceError.Fetch))
                     return
                 }
