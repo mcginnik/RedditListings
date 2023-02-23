@@ -21,7 +21,7 @@ class ListingsViewController: UIViewController {
         return cv
     }()
 
-    @ObservedObject var viewModel: ListingsViewModel = ListingsViewModel(withEndpoint: RedditEndpoints.allNew)
+    @ObservedObject var viewModel: ListingsViewModel = ListingsViewModel(withTopic: .new)
     
     var listings: [ListingViewModel] {
         self.viewModel.listings

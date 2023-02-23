@@ -1,29 +1,29 @@
 //
-//  ListingViewModel.swift
+//  CommentViewModel.swift
 //  RedditListings
 //
-//  Created by Kyle McGinnis on 2/22/23.
+//  Created by Kyle McGinnis on 2/23/23.
 //
 
 import UIKit
 import Combine
 
-class ListingViewModel: ObservableObject {
+class CommentViewModel: ObservableObject {
     
     // MARK: Properties
     
-    let listingData: ListingData
+    let innerData: CommentData
     
     var id: String {
-        return listingData.id
+        return innerData.id
     }
     
-    var title: String {
-        return listingData.title
+    var body: String {
+        return innerData.body ?? ""
     }
     
     var author: String {
-        return listingData.author
+        return innerData.author
     }
     
     var formattedAuthor: String {
@@ -31,19 +31,19 @@ class ListingViewModel: ObservableObject {
     }
     
     var subtitle: String? {
-        return listingData.subtitle
+        return innerData.subtitle
     }
     
     var imageURL: String? {
-        listingData.thumbnail
+        innerData.thumbnail
     }
             
     // MARK: Lifecycle
     
-    init(withData listingData: ListingData){
-        self.listingData = listingData
+    init(withData data: CommentData){
+        self.innerData = data
     }
-    
+
     func fetchImage(completion: @escaping (Result<(UIImage, String), Error>) -> Void){
         guard let imageURL = imageURL else { return }
         ImageService.shared.fetchImage(imageURL) { res in
@@ -52,7 +52,7 @@ class ListingViewModel: ObservableObject {
                 switch res {
                 case .success(let image):
                     completion(.success((image, imageURL)))
-                    Logging.LogMe("Success!  \(strongSelf.title): imageurl string \(imageURL)")
+                    Logging.LogMe("Success!  \(strongSelf.body): imageurl string \(imageURL)")
                 case .failure(let error):
                     completion(.failure(error))
                     Logging.LogMe("Failed! \(error)")
@@ -60,6 +60,5 @@ class ListingViewModel: ObservableObject {
             }
         }
     }
-
     
 }

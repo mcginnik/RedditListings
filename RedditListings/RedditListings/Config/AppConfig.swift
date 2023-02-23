@@ -15,7 +15,7 @@ public class AppConfig {
     
     private (set) var loggingLevel: LoggingLevel = .medium
     
-    private (set) var baseURLString = RedditEndpoints.baseURL
+    private (set) var baseURLString = Endpoints.baseURL
     
     // MARK: - Lifecycle
 

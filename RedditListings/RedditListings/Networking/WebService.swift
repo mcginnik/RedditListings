@@ -46,6 +46,8 @@ struct WebService {
         urlRequest.httpBody = request.body
         urlRequest.httpMethod = request.httpMethod.rawValue
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        Logging.LogMe("...STARTING url \(request.url)")
+
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             
@@ -55,9 +57,9 @@ struct WebService {
             }
             
             do {
-                let dataDict = try data.asDictionary()
+                let dataDict = try? data.asDictionary()
                 Logging.LogMe("... url \(request.url)")
-                Logging.LogMe("... data \(dataDict)")
+                Logging.LogMe("... data \(dataDict ?? [:])")
                 let result = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(result))
             } catch {
@@ -75,7 +77,7 @@ struct WebService {
 extension Data {
   func asDictionary() throws -> [String: Any] {
     guard let dictionary = try JSONSerialization.jsonObject(with: self, options: .allowFragments) as? [String: Any] else {
-      throw NSError()
+        throw DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "IDK"))
     }
     return dictionary
   }

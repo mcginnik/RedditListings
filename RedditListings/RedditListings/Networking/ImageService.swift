@@ -8,7 +8,8 @@
 import UIKit
 
 enum ImageServiceError: Error {
-    case Fetch
+    case fetch
+    case invalidURL
 }
 
 class ImageService {
@@ -35,21 +36,25 @@ class ImageService {
             completion(.success(image))
             return
         }
+        
+        guard URLString.isValid(regex: .url) else  {
+            Logging.LogMe("Invalid URL \(URLString)")
+            completion(.failure(ImageServiceError.invalidURL))
+            return
+        }
+        
         let formattedURLString = URLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-    
         if let url = URL(string: formattedURLString) {
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                Logging.LogMe("RESPONSE FROM API: \(String(describing: response))")
                 if error != nil {
-                    Logging.LogMe("ERROR LOADING IMAGES FROM URL: \(String(describing: error))")
-                    completion(.failure(ImageServiceError.Fetch))
+                    completion(.failure(ImageServiceError.fetch))
                     return
                 }
                 DispatchQueue.main.async { [ weak self ] in
                     if let data = data, let image = UIImage(data: data) {
-                            self?.cache.setObject(image, forKey: nsURLString)
-                            completion(.success(image))
-                        }
+                        self?.cache.setObject(image, forKey: nsURLString)
+                        completion(.success(image))
+                    }
                 }
             }).resume()
         }

@@ -13,14 +13,10 @@ class ListingsViewModel: ObservableObject {
     // MARK: Properties
     
     let baseURL: String = AppConfig.shared.baseURLString
-    let endPoint: String
+    let topic: Endpoints.Topic
     
     var fullURL: String {
-        var url = baseURL + endPoint + "?\(RedditEndpoints.pagingLimitToken)\(pagingSize)"
-        if let lastID = listings.last?.id {
-            url += "&\(RedditEndpoints.pagingCursorToken)\(lastID)"
-        }
-        return url
+        topic.createListingsURLString(pagingSize: pagingSize, cursor: listings.last?.id)
     }
     
     let pagingSize: Int
@@ -33,8 +29,8 @@ class ListingsViewModel: ObservableObject {
     
     // MARK: Lifecycle
     
-    init(withEndpoint endPoint: String, pagingSize: Int = 20){
-        self.endPoint = endPoint
+    init(withTopic topic: Endpoints.Topic, pagingSize: Int = 20){
+        self.topic = topic
         self.pagingSize = pagingSize
     }
     
@@ -45,7 +41,7 @@ class ListingsViewModel: ObservableObject {
         ListingsService.shared.fetchPage(from: fullURL) { [weak self] res in
             switch res {
             case .success(let listingPage):
-                let vms = listingPage.listings.compactMap{ListingViewModel(withData: $0.data)}
+                let vms = listingPage.children.compactMap{ListingViewModel(withData: $0.data)}
                 self?.listings.append(contentsOf: vms)
                 Logging.LogMe("... Success! \(listingPage)")
                 

@@ -11,7 +11,7 @@ struct ListingPage : Decodable {
     let kind: String
     let data: ListingPageData
     
-    var listings: [Listing] {
+    var children: [Listing] {
         return data.children
     }
 }
