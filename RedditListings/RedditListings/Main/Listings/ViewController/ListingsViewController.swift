@@ -58,6 +58,7 @@ class ListingsViewController: UIViewController {
     
     private func setupCollectionView(){
         view.addSubview(collectionView)
+        collectionView.fillSuperview()
         collectionView.register(ListingCell.self, forCellWithReuseIdentifier: ListingCell.reuseID)
         collectionView.dataSource = self
         collectionView.delegate = self

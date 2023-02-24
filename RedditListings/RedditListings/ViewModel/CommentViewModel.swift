@@ -18,16 +18,16 @@ class CommentViewModel: ObservableObject {
         return model.id
     }
     
-    var body: String {
-        return model.body ?? ""
+    var body: String? {
+        return model.body
     }
     
     var title: String {
-        model.author
+        model.title ?? ""
     }
     
     var caption: String {
-        return "@\(model.author)"
+        model.author
     }
     
     var subtitle: String? {
@@ -35,7 +35,8 @@ class CommentViewModel: ObservableObject {
     }
     
     var imageURL: String? {
-        model.thumbnail
+        let isValidURL = model.url?.isValid(regex: .jpgImageURL) ?? false
+        return isValidURL ? model.url : model.thumbnail
     }
             
     // MARK: Lifecycle

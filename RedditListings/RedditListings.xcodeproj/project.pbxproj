@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		24FB467865FDDAB0FED553B8 /* Pods_RedditListings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA83E6BF272435E433A07FA /* Pods_RedditListings.framework */; };
 		A7901ED029A90987003565A0 /* PageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7901ECF29A90987003565A0 /* PageService.swift */; };
+		A7901ED229A91169003565A0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7901ED129A91169003565A0 /* Item.swift */; };
+		A7901ED429A959FC003565A0 /* ListingDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7901ED329A959FC003565A0 /* ListingDetailHeaderCell.swift */; };
 		A79D813729A66FA7001A8CAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D813629A66FA7001A8CAF /* AppDelegate.swift */; };
 		A79D813929A66FA7001A8CAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D813829A66FA7001A8CAF /* SceneDelegate.swift */; };
 		A79D814029A66FA9001A8CAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A79D813F29A66FA9001A8CAF /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 /* Begin PBXFileReference section */
 		7AA83E6BF272435E433A07FA /* Pods_RedditListings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RedditListings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7901ECF29A90987003565A0 /* PageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageService.swift; sourceTree = "<group>"; };
+		A7901ED129A91169003565A0 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A7901ED329A959FC003565A0 /* ListingDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailHeaderCell.swift; sourceTree = "<group>"; };
 		A79D813329A66FA7001A8CAF /* RedditListings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditListings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79D813629A66FA7001A8CAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A79D813829A66FA7001A8CAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 			children = (
 				A79D816429A67B3F001A8CAF /* Listing.swift */,
 				A79D81B729A71532001A8CAF /* Comment.swift */,
+				A7901ED129A91169003565A0 /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,8 +243,8 @@
 		A79D815D29A67A04001A8CAF /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				A79D818029A6D7C1001A8CAF /* LBTATools */,
 				A79D815E29A67A0A001A8CAF /* CollectionView */,
+				A79D818029A6D7C1001A8CAF /* LBTATools */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				A79D81C729A7B079001A8CAF /* CommentCell.swift */,
+				A7901ED329A959FC003565A0 /* ListingDetailHeaderCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -532,10 +538,12 @@
 			files = (
 				A79D815929A676AB001A8CAF /* ListingsViewModel.swift in Sources */,
 				A79D81C829A7B079001A8CAF /* CommentCell.swift in Sources */,
+				A7901ED229A91169003565A0 /* Item.swift in Sources */,
 				A79D81BA29A7158D001A8CAF /* RESTListingDetailService.swift in Sources */,
 				A79D817629A6806C001A8CAF /* Endpoints.swift in Sources */,
 				A79D81D329A81C64001A8CAF /* ListViewController.swift in Sources */,
 				A79D81D029A81730001A8CAF /* ListCellDataProtocol.swift in Sources */,
+				A7901ED429A959FC003565A0 /* ListingDetailHeaderCell.swift in Sources */,
 				A79D81B629A7148F001A8CAF /* ListingDetailService.swift in Sources */,
 				A79D816829A67CD8001A8CAF /* AppConfig.swift in Sources */,
 				A79D817329A67E14001A8CAF /* WebService.swift in Sources */,

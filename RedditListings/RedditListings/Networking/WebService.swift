@@ -32,7 +32,6 @@ enum HttpMethod: String {
     case put = "PUT"
 }
 
-// Just decodable for now
 struct Request< T: Decodable> {
     let url: URL
     var body: Data?

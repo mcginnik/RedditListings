@@ -10,7 +10,7 @@ import Foundation
 extension String {
     
     enum RegularExpressions: String {
-        case url = "http"
+        case jpgImageURL = ".jpg"
     }
     
     func isValid(regex: RegularExpressions) -> Bool {

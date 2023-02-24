@@ -14,5 +14,30 @@ class CommentCell: ListCell {
     override class var reuseID: String {
         "CommentRowCell"
     }
+    
+    override var imageViewHeight: CGFloat {
+        return 60
+    }
+    
+    var bodyTextView: UITextView = {
+        let tv = UITextView()
+        tv.font = .preferredFont(forTextStyle: .body)
+        return tv
+    }()
+    
+    override func configure(with item: ListCellDataProtocol) {
+        super.configure(with: item)
+        bodyTextView.text = item.body
+        Logging.LogMe("set body text!: \(item.body)")
+    }
+    // MARK: Views
+    
+    override func getStackContent() -> UIView {
+        stack(
+            super.getStackContent()
+                .withHeight(60),
+            bodyTextView
+        )
+    }
 
 }

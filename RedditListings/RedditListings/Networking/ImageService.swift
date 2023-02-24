@@ -37,7 +37,7 @@ class ImageService {
             return
         }
         
-        guard URLString.isValid(regex: .url) else  {
+        guard URLString.isValid(regex: .jpgImageURL) else  {
 //            Logging.LogMe("Invalid URL \(URLString)")
             completion(.failure(ImageServiceError.invalidURL))
             return

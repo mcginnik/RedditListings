@@ -39,10 +39,14 @@ class ListingsViewModel: ObservableObject {
     func fetchNextPage(){
         
         ListingsService.shared.fetchPage(from: fullURL) { [weak self] res in
+            guard let strongSelf = self else { return }
             switch res {
             case .success(let pages):
-                for page in pages {
-                    self?.viewModels.append(contentsOf: page.items.compactMap{ListingViewModel(withData: $0)})
+                for item in pages.flatMap({$0.items}) {
+                    if let _ = strongSelf.viewModels.first(where: {$0.id == item.id }) {
+                        continue
+                    }
+                    strongSelf.viewModels.append(ListingViewModel(withData: item))
                 }
                 Logging.LogMe("... Success! \(pages)")
             case .failure(let error):

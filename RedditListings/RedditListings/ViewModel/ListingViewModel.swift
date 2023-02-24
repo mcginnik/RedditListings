@@ -18,6 +18,10 @@ class ListingViewModel: ObservableObject {
         return model.id
     }
     
+    var body: String? {
+        return model.body
+    }
+    
     var title: String {
         return model.title ?? ""
     }

@@ -43,6 +43,7 @@ class ListingDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = StringConstants.commentsTitle
         setupViews()
         setupSubscriptions()
         fetchNextPage()
@@ -57,7 +58,10 @@ class ListingDetailViewController: UIViewController {
     
     private func setupCollectionView(){
         view.addSubview(collectionView)
+        collectionView.fillSuperview()
         collectionView.register(CommentCell.self, forCellWithReuseIdentifier: CommentCell.reuseID)
+        collectionView.register(ListingDetailHeaderCell.self, forCellWithReuseIdentifier: ListingDetailHeaderCell.reuseID)
+
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.reloadData()
@@ -99,11 +103,18 @@ extension ListingDetailViewController: UICollectionViewDataSource, UICollectionV
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CommentCell.reuseID,
+        
+        let cell: UICollectionViewCell
+        if indexPath.item == 0 {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListingDetailHeaderCell.reuseID,
+                                                          for: indexPath) as! ListingDetailHeaderCell
+        } else {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: CommentCell.reuseID,
                                                       for: indexPath) as! CommentCell
+        }
         let listing = comments[indexPath.item]
         
-        cell.configure(with: listing)
+        (cell as? CommentCell)?.configure(with: listing)
         
         didLoadCellAtIndex(indexPath.item)
         
@@ -112,7 +123,7 @@ extension ListingDetailViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
-        let height = viewModel.cellHeight
+        let height = viewModel.cellHeight(forIndexPath: indexPath)
         return CGSize(width: width, height: height)
     }
     

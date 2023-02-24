@@ -23,10 +23,6 @@ class ListingDetailViewModel: ObservableObject {
     
     let pagingSize: Int
     
-    var cellHeight: CGFloat {
-        80
-    }
-    
     @Published var viewModels: [CommentViewModel] = []
     @ObservedObject var listingViewModel: ListingViewModel
     
@@ -41,10 +37,14 @@ class ListingDetailViewModel: ObservableObject {
     
     func fetchNextPage(){
         ListingDetailService.shared.fetchPage(from: fullURL) { [weak self] res in
+            guard let strongSelf = self else { return }
             switch res {
             case .success(let pages):
-                for page in pages {
-                    self?.viewModels.append(contentsOf: page.items.compactMap{CommentViewModel(withData: $0)})
+                for item in pages.flatMap({$0.items}) {
+                    if let _ = strongSelf.viewModels.first(where: {$0.id == item.id }) {
+                        continue
+                    }
+                    strongSelf.viewModels.append(CommentViewModel(withData: item))
                 }
                 Logging.LogMe("... Success! \(pages)")
                 
@@ -54,55 +54,12 @@ class ListingDetailViewModel: ObservableObject {
         }
     }
     
+    func cellHeight(forIndexPath indexPath: IndexPath) -> CGFloat {
+        let height: CGFloat = 200
+        if indexPath.item == 0 {
+            return height * 1.5
+        }
+        return height
+    }
+    
 }
-
-
-//import Foundation
-//import Combine
-//import SwiftUI
-//
-//class ListViewModel<VM>: ObservableObject {
-//    
-//    // MARK: Properties
-//    
-//    var baseURL: String { AppConfig.shared.baseURLString }
-//    
-//    
-//    /// Override in Subclass
-//    var fullURL: String {
-//        baseURL
-//    }
-//    
-//    let pagingSize: Int
-//    
-//    /// Override in Subclass
-//    var cellHeight: CGFloat {
-//        80
-//    }
-//    
-//    @Published var viewModels: [VM] = []
-//    
-//    // MARK: Lifecycle
-//    
-//    init(pagingSize: Int = 20){
-//        self.pagingSize = pagingSize
-//    }
-//    
-//    // MARK: API
-//    
-//    func fetchNextPage(){
-//        ListingDetailService.shared.fetchPage(from: fullURL) { [weak self] res in
-//            switch res {
-//            case .success(let pages):
-//                for page in pages {
-//                    self?.viewModels.append(contentsOf: page.items.compactMap{CommentViewModel(withData: $0)})
-//                }
-//                Logging.LogMe("... Success! \(pages)")
-//                
-//            case .failure(let error):
-//                Logging.LogMe("... FAILED! \(error)")
-//            }
-//        }
-//    }
-//    
-//}

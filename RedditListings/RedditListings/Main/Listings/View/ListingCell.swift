@@ -24,9 +24,9 @@ class ListingCell: ListCell {
     
     // MARK: Views
     
-    override func getLabelContent() -> UIView {
+    override func getStackContent() -> UIView {
         hstack(
-            super.getLabelContent(),
+            super.getStackContent(),
             stack (
                 UIView(),
                 rightArrow

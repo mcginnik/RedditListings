@@ -10,6 +10,7 @@ import UIKit
 protocol ListCellDataProtocol {
     var title: String { get }
     var subtitle: String? { get }
+    var body: String? { get }
     var caption: String { get }
     var imageURL: String? { get }
     func fetchImage(completion: @escaping (Result<(UIImage, String), Error>) -> Void)

@@ -17,27 +17,25 @@ class ListCell: UICollectionViewCell, CellConfiguring {
     
     let titleLabel = UILabel()
     
-    private var subtitleLabel: UILabel = {
+    var subtitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = .secondaryLabel
         return label
     }()
     
-    private var captionLabel: UILabel = {
+    var captionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
         label.textColor = .secondaryLabel
         return label
     }()
     
-    private var separator: UIView {
+    var separator: UIView {
         let view = UIView()
         view.backgroundColor = .black.withAlphaComponent(0.25)
         return view
     }
-    
-
     
     var imageViewHeight: CGFloat {
         return self.frame.height * 0.7
@@ -69,14 +67,14 @@ class ListCell: UICollectionViewCell, CellConfiguring {
     
     private func setupViews(){
         contentView.stack(
-            getLabelContent(),
+            getStackContent(),
             UIView().withHeight(4),
             separator.withHeight(1)
         ).withMargins(.allSides(8))
     }
     
     /// Override to add more content to cell
-    func getLabelContent() -> UIView {
+    func getStackContent() -> UIView {
         hstack(
             stack (
                 UIView(),
