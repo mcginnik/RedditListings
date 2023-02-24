@@ -22,12 +22,12 @@ class CommentViewModel: ObservableObject {
         return innerData.body ?? ""
     }
     
-    var author: String {
-        return innerData.author
+    var title: String {
+        innerData.author
     }
     
-    var formattedAuthor: String {
-        return "@\(author)"
+    var caption: String {
+        return "@\(innerData.author)"
     }
     
     var subtitle: String? {
@@ -43,22 +43,7 @@ class CommentViewModel: ObservableObject {
     init(withData data: CommentData){
         self.innerData = data
     }
-
-    func fetchImage(completion: @escaping (Result<(UIImage, String), Error>) -> Void){
-        guard let imageURL = imageURL else { return }
-        ImageService.shared.fetchImage(imageURL) { res in
-            DispatchQueue.main.async { [ weak self ] in
-                guard let strongSelf = self else { return }
-                switch res {
-                case .success(let image):
-                    completion(.success((image, imageURL)))
-                    Logging.LogMe("Success!  \(strongSelf.body): imageurl string \(imageURL)")
-                case .failure(let error):
-                    completion(.failure(error))
-                    Logging.LogMe("Failed! \(error)")
-                }
-            }
-        }
-    }
     
 }
+
+extension CommentViewModel: SectionCellDataProtocol {}

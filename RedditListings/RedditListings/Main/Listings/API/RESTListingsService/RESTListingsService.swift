@@ -11,7 +11,7 @@ import Foundation
 class RESTListingsService: ListingsServiceProtocol {
     
     func fetchPage(from urlString: String,
-                       completion: @escaping (Result<ListingPage, Error>) -> Void) {
+                   completion: @escaping (Result<ListingPage, Error>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.URLFormatting))
             return
@@ -20,12 +20,7 @@ class RESTListingsService: ListingsServiceProtocol {
         
         let request = Request<ListingPage>(url: url)
         WebService.execute(request: request) { (res) in
-            switch res {
-            case .failure(let error):
-                completion(.failure(error))
-            case .success(let school):
-                completion(.success(school))
-            }
+            completion(res)
         }
     }
     

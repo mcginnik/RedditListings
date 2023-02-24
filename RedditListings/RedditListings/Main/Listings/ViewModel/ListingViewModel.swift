@@ -22,16 +22,12 @@ class ListingViewModel: ObservableObject {
         return listingData.title
     }
     
-    var author: String {
-        return listingData.author
-    }
-    
-    var formattedAuthor: String {
-        return "@\(author)"
-    }
-    
     var subtitle: String? {
-        return listingData.subtitle
+        listingData.subtitle
+    }
+    
+    var caption: String {
+        return "@\(listingData.author)"
     }
     
     var imageURL: String? {
@@ -43,23 +39,8 @@ class ListingViewModel: ObservableObject {
     init(withData listingData: ListingData){
         self.listingData = listingData
     }
-    
-    func fetchImage(completion: @escaping (Result<(UIImage, String), Error>) -> Void){
-        guard let imageURL = imageURL else { return }
-        ImageService.shared.fetchImage(imageURL) { res in
-            DispatchQueue.main.async { [ weak self ] in
-                guard let strongSelf = self else { return }
-                switch res {
-                case .success(let image):
-                    completion(.success((image, imageURL)))
-                    Logging.LogMe("Success!  \(strongSelf.title): imageurl string \(imageURL)")
-                case .failure(let error):
-                    completion(.failure(error))
-                    Logging.LogMe("Failed! -> error \(error) url: \(imageURL)")
-                }
-            }
-        }
-    }
 
     
 }
+
+extension ListingViewModel: SectionCellDataProtocol {}

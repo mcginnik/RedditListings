@@ -9,9 +9,6 @@ import Foundation
 
 class RESTListingDetailService: ListingDetailServiceProtocol {
     
-    func fetchComments(forListing listing: Listing, completion: @escaping (Result<[Comment], Error>) -> Void) {
-        //
-    }
-    
+
     
 }

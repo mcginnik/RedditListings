@@ -57,7 +57,7 @@ class ListingDetailViewController: UIViewController {
     
     private func setupCollectionView(){
         view.addSubview(collectionView)
-        collectionView.register(CommentRowCell.self, forCellWithReuseIdentifier: CommentRowCell.reuseID)
+        collectionView.register(CommentCell.self, forCellWithReuseIdentifier: CommentCell.reuseID)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.reloadData()
@@ -99,8 +99,8 @@ extension ListingDetailViewController: UICollectionViewDataSource, UICollectionV
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CommentRowCell.reuseID,
-                                                      for: indexPath) as! CommentRowCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CommentCell.reuseID,
+                                                      for: indexPath) as! CommentCell
         let listing = comments[indexPath.item]
         
         cell.configure(with: listing)

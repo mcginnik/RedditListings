@@ -1,17 +1,19 @@
 //
-//  ListingRowCell.swift
+//  SectionCell.swift
 //  RedditListings
 //
-//  Created by Kyle McGinnis on 2/22/23.
+//  Created by Kyle McGinnis on 2/23/23.
 //
 
 import UIKit
 
-class ListingRowCell: UICollectionViewCell, CellConfiguring {
+class SectionCell: UICollectionViewCell, CellConfiguring {
     
     // MARK: Properties
     
-    static let reuseID: String = "ListingRowCell"
+    class var reuseID: String {
+        ""
+    }
     
     let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
@@ -87,15 +89,15 @@ class ListingRowCell: UICollectionViewCell, CellConfiguring {
     
     // MARK: Cell Configuration
     
-    func configure(with item: ListingViewModel) {
+    func configure(with item: SectionCellDataProtocol) {
         titleLabel.text = item.title
         subtitleLabel.text = item.subtitle
-        authorLabel.text = item.formattedAuthor
+        authorLabel.text = item.caption
         
         configureImageView(with: item)
     }
         
-    private func configureImageView(with item: ListingViewModel){
+    private func configureImageView(with item: SectionCellDataProtocol){
 
         if self.imageURL != item.imageURL {
             self.imageView.image = nil

@@ -16,7 +16,7 @@
 		A79D815629A67527001A8CAF /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D815529A67527001A8CAF /* StringConstants.swift */; };
 		A79D815929A676AB001A8CAF /* ListingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D815829A676AB001A8CAF /* ListingsViewModel.swift */; };
 		A79D815C29A67893001A8CAF /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D815B29A67893001A8CAF /* Section.swift */; };
-		A79D816129A67A32001A8CAF /* ListingRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816029A67A32001A8CAF /* ListingRowCell.swift */; };
+		A79D816129A67A32001A8CAF /* ListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816029A67A32001A8CAF /* ListingCell.swift */; };
 		A79D816329A67A4F001A8CAF /* CellConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816229A67A4F001A8CAF /* CellConfiguring.swift */; };
 		A79D816529A67B3F001A8CAF /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816429A67B3F001A8CAF /* Listing.swift */; };
 		A79D816829A67CD8001A8CAF /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D816729A67CD8001A8CAF /* AppConfig.swift */; };
@@ -57,8 +57,11 @@
 		A79D81BE29A7AC12001A8CAF /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81BD29A7AC12001A8CAF /* CommentViewModel.swift */; };
 		A79D81C329A7AD4E001A8CAF /* CommentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81C229A7AD4E001A8CAF /* CommentsService.swift */; };
 		A79D81C629A7AD5D001A8CAF /* RESTCommentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81C529A7AD5D001A8CAF /* RESTCommentsService.swift */; };
-		A79D81C829A7B079001A8CAF /* CommentRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81C729A7B079001A8CAF /* CommentRowCell.swift */; };
+		A79D81C829A7B079001A8CAF /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81C729A7B079001A8CAF /* CommentCell.swift */; };
 		A79D81CC29A80FA7001A8CAF /* String+isValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81CB29A80FA7001A8CAF /* String+isValid.swift */; };
+		A79D81CE29A816D4001A8CAF /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81CD29A816D4001A8CAF /* SectionCell.swift */; };
+		A79D81D029A81730001A8CAF /* SectionCellDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81CF29A81730001A8CAF /* SectionCellDataProtocol.swift */; };
+		A79D81D329A81C64001A8CAF /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D81D229A81C64001A8CAF /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +76,7 @@
 		A79D815529A67527001A8CAF /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		A79D815829A676AB001A8CAF /* ListingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsViewModel.swift; sourceTree = "<group>"; };
 		A79D815B29A67893001A8CAF /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
-		A79D816029A67A32001A8CAF /* ListingRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingRowCell.swift; sourceTree = "<group>"; };
+		A79D816029A67A32001A8CAF /* ListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCell.swift; sourceTree = "<group>"; };
 		A79D816229A67A4F001A8CAF /* CellConfiguring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfiguring.swift; sourceTree = "<group>"; };
 		A79D816429A67B3F001A8CAF /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		A79D816729A67CD8001A8CAF /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -114,8 +117,11 @@
 		A79D81BD29A7AC12001A8CAF /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		A79D81C229A7AD4E001A8CAF /* CommentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsService.swift; sourceTree = "<group>"; };
 		A79D81C529A7AD5D001A8CAF /* RESTCommentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTCommentsService.swift; sourceTree = "<group>"; };
-		A79D81C729A7B079001A8CAF /* CommentRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowCell.swift; sourceTree = "<group>"; };
+		A79D81C729A7B079001A8CAF /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		A79D81CB29A80FA7001A8CAF /* String+isValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isValid.swift"; sourceTree = "<group>"; };
+		A79D81CD29A816D4001A8CAF /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
+		A79D81CF29A81730001A8CAF /* SectionCellDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCellDataProtocol.swift; sourceTree = "<group>"; };
+		A79D81D229A81C64001A8CAF /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B46D8E42F0AD31F82B04BF19 /* Pods-RedditListings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditListings.release.xcconfig"; path = "Target Support Files/Pods-RedditListings/Pods-RedditListings.release.xcconfig"; sourceTree = "<group>"; };
 		DFFFD4554770B21DEA2761D8 /* Pods-RedditListings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditListings.debug.xcconfig"; path = "Target Support Files/Pods-RedditListings/Pods-RedditListings.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,7 +229,7 @@
 		A79D814F29A674BE001A8CAF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A79D816029A67A32001A8CAF /* ListingRowCell.swift */,
+				A79D816029A67A32001A8CAF /* ListingCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -277,17 +283,21 @@
 		A79D815E29A67A0A001A8CAF /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				A79D815F29A67A0F001A8CAF /* SectionCell */,
+				A79D81D429A82B70001A8CAF /* ViewModel */,
+				A79D81D129A81C59001A8CAF /* Controller */,
+				A79D815F29A67A0F001A8CAF /* View */,
 				A79D816229A67A4F001A8CAF /* CellConfiguring.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
-		A79D815F29A67A0F001A8CAF /* SectionCell */ = {
+		A79D815F29A67A0F001A8CAF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A79D81CD29A816D4001A8CAF /* SectionCell.swift */,
+				A79D81CF29A81730001A8CAF /* SectionCellDataProtocol.swift */,
 			);
-			path = SectionCell;
+			path = View;
 			sourceTree = "<group>";
 		};
 		A79D816629A67CCE001A8CAF /* Config */ = {
@@ -342,7 +352,7 @@
 		A79D817C29A69D82001A8CAF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A79D81C729A7B079001A8CAF /* CommentRowCell.swift */,
+				A79D81C729A7B079001A8CAF /* CommentCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -497,6 +507,21 @@
 			path = String;
 			sourceTree = "<group>";
 		};
+		A79D81D129A81C59001A8CAF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A79D81D229A81C64001A8CAF /* ListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A79D81D429A82B70001A8CAF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		AE81D02BB96826AFA239CFA6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,12 +639,14 @@
 			files = (
 				A79D815929A676AB001A8CAF /* ListingsViewModel.swift in Sources */,
 				A79D81A729A6D7C1001A8CAF /* UIColor+Helpers.swift in Sources */,
-				A79D81C829A7B079001A8CAF /* CommentRowCell.swift in Sources */,
+				A79D81C829A7B079001A8CAF /* CommentCell.swift in Sources */,
 				A79D81AD29A6D7C1001A8CAF /* LBTATools.swift in Sources */,
 				A79D81BA29A7158D001A8CAF /* RESTListingDetailService.swift in Sources */,
 				A79D817629A6806C001A8CAF /* Endpoints.swift in Sources */,
 				A79D81A529A6D7C1001A8CAF /* UILabel.swift in Sources */,
 				A79D819C29A6D7C1001A8CAF /* LBTAFormController.swift in Sources */,
+				A79D81D329A81C64001A8CAF /* ListViewController.swift in Sources */,
+				A79D81D029A81730001A8CAF /* SectionCellDataProtocol.swift in Sources */,
 				A79D81B629A7148F001A8CAF /* ListingDetailService.swift in Sources */,
 				A79D816829A67CD8001A8CAF /* AppConfig.swift in Sources */,
 				A79D817829A69733001A8CAF /* ListingPage.swift in Sources */,
@@ -640,9 +667,10 @@
 				A79D81A129A6D7C1001A8CAF /* AspectFitImageView.swift in Sources */,
 				A79D81A329A6D7C1001A8CAF /* UIView+Stacking.swift in Sources */,
 				A79D81A029A6D7C1001A8CAF /* UIView+Layout.swift in Sources */,
+				A79D81CE29A816D4001A8CAF /* SectionCell.swift in Sources */,
 				A79D815629A67527001A8CAF /* StringConstants.swift in Sources */,
 				A79D81A929A6D7C1001A8CAF /* LBTAListController.swift in Sources */,
-				A79D816129A67A32001A8CAF /* ListingRowCell.swift in Sources */,
+				A79D816129A67A32001A8CAF /* ListingCell.swift in Sources */,
 				A79D816329A67A4F001A8CAF /* CellConfiguring.swift in Sources */,
 				A79D817A29A6978D001A8CAF /* ListingViewModel.swift in Sources */,
 				A79D819E29A6D7C1001A8CAF /* UIStackView.swift in Sources */,

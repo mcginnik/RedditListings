@@ -7,10 +7,7 @@
 
 import Foundation
 
-protocol ListingDetailServiceProtocol {
-//    func fetchComments(forListing listing: Listing,
-//                       completion: @escaping (Result<[Comment], Error>) -> Void)
-}
+protocol ListingDetailServiceProtocol {}
 
 enum ListingDetailServiceError: LocalizedError {
     case emptyData
