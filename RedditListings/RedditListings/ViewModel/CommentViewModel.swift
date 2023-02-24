@@ -12,38 +12,38 @@ class CommentViewModel: ObservableObject {
     
     // MARK: Properties
     
-    let innerData: CommentData
+    let model: Comment
     
     var id: String {
-        return innerData.id
+        return model.id
     }
     
     var body: String {
-        return innerData.body ?? ""
+        return model.body ?? ""
     }
     
     var title: String {
-        innerData.author
+        model.author
     }
     
     var caption: String {
-        return "@\(innerData.author)"
+        return "@\(model.author)"
     }
     
     var subtitle: String? {
-        return innerData.subtitle
+        return model.subtitle
     }
     
     var imageURL: String? {
-        innerData.thumbnail
+        model.thumbnail
     }
             
     // MARK: Lifecycle
     
-    init(withData data: CommentData){
-        self.innerData = data
+    init(withData model: Comment){
+        self.model = model
     }
     
 }
 
-extension CommentViewModel: SectionCellDataProtocol {}
+extension CommentViewModel: ListCellDataProtocol {}

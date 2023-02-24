@@ -12,35 +12,35 @@ class ListingViewModel: ObservableObject {
     
     // MARK: Properties
     
-    let listingData: ListingData
+    let model: Listing
     
     var id: String {
-        return listingData.id
+        return model.id
     }
     
     var title: String {
-        return listingData.title
+        return model.title ?? ""
     }
     
     var subtitle: String? {
-        listingData.subtitle
+        model.subtitle
     }
     
     var caption: String {
-        return "@\(listingData.author)"
+        return "@\(model.author)"
     }
     
     var imageURL: String? {
-        listingData.thumbnail
+        model.thumbnail
     }
             
     // MARK: Lifecycle
     
-    init(withData listingData: ListingData){
-        self.listingData = listingData
+    init(withData model: Listing){
+        self.model = model
     }
 
     
 }
 
-extension ListingViewModel: SectionCellDataProtocol {}
+extension ListingViewModel: ListCellDataProtocol {}

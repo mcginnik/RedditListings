@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SectionCellDataProtocol {
+protocol ListCellDataProtocol {
     var title: String { get }
     var subtitle: String? { get }
     var caption: String { get }
@@ -15,13 +15,13 @@ protocol SectionCellDataProtocol {
     func fetchImage(completion: @escaping (Result<(UIImage, String), Error>) -> Void)
 }
 
-extension SectionCellDataProtocol {
+extension ListCellDataProtocol {
     
     func fetchImage(completion: @escaping (Result<(UIImage, String), Error>) -> Void){
         guard let imageURL = imageURL else {
             let error = ImageServiceError.invalidURL
             completion(.failure(error))
-            Logging.LogMe("Failed! \(error)")
+//            Logging.LogMe("Failed! \(error)")
             return
         }
         ImageService.shared.fetchImage(imageURL) { res in
@@ -29,10 +29,10 @@ extension SectionCellDataProtocol {
                 switch res {
                 case .success(let image):
                     completion(.success((image, imageURL)))
-                    Logging.LogMe("Success! \(imageURL)")
+//                    Logging.LogMe("Success! \(imageURL)")
                 case .failure(let error):
                     completion(.failure(error))
-                    Logging.LogMe("Failed! \(error)")
+//                    Logging.LogMe("Failed! \(error)")
                 }
             }
         }

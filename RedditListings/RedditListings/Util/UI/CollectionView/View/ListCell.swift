@@ -1,5 +1,5 @@
 //
-//  SectionCell.swift
+//  ListCell.swift
 //  RedditListings
 //
 //  Created by Kyle McGinnis on 2/23/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SectionCell: UICollectionViewCell, CellConfiguring {
+class ListCell: UICollectionViewCell, CellConfiguring {
     
     // MARK: Properties
     
@@ -16,7 +16,20 @@ class SectionCell: UICollectionViewCell, CellConfiguring {
     }
     
     let titleLabel = UILabel()
-    private let subtitleLabel = UILabel()
+    
+    private var subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.textColor = .secondaryLabel
+        return label
+    }()
+    
+    private var captionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .caption1)
+        label.textColor = .secondaryLabel
+        return label
+    }()
     
     private var separator: UIView {
         let view = UIView()
@@ -24,12 +37,7 @@ class SectionCell: UICollectionViewCell, CellConfiguring {
         return view
     }
     
-    private var authorLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .caption1)
-        label.textColor = .secondaryLabel
-        return label
-    }()
+
     
     var imageViewHeight: CGFloat {
         return self.frame.height * 0.7
@@ -60,44 +68,43 @@ class SectionCell: UICollectionViewCell, CellConfiguring {
     // MARK: View Setup
     
     private func setupViews(){
-        setupStackView()
-    }
-    
-    private func setupStackView(){
         contentView.stack(
-            hstack(
-                stack (
-                    UIView(),
-                imageView
-                    .withWidth(imageViewHeight)
-                    .withHeight(imageViewHeight),
-                    UIView()
-                ),
-                UIView().withWidth(8),
-                stack(
-                    titleLabel,
-                    subtitleLabel,
-                    authorLabel
-                ).withMargins(.allSides(2))
-            ),
+            getLabelContent(),
             UIView().withHeight(4),
             separator.withHeight(1)
         ).withMargins(.allSides(8))
-        
-        
+    }
+    
+    /// Override to add more content to cell
+    func getLabelContent() -> UIView {
+        hstack(
+            stack (
+                UIView(),
+            imageView
+                .withWidth(imageViewHeight)
+                .withHeight(imageViewHeight),
+                UIView()
+            ),
+            UIView().withWidth(8),
+            stack(
+                titleLabel,
+                subtitleLabel,
+                captionLabel
+            ).withMargins(.allSides(2))
+        )
     }
     
     // MARK: Cell Configuration
     
-    func configure(with item: SectionCellDataProtocol) {
+    func configure(with item: ListCellDataProtocol) {
         titleLabel.text = item.title
         subtitleLabel.text = item.subtitle
-        authorLabel.text = item.caption
+        captionLabel.text = item.caption
         
         configureImageView(with: item)
     }
         
-    private func configureImageView(with item: SectionCellDataProtocol){
+    private func configureImageView(with item: ListCellDataProtocol){
 
         if self.imageURL != item.imageURL {
             self.imageView.image = nil
@@ -112,7 +119,7 @@ class SectionCell: UICollectionViewCell, CellConfiguring {
                     self?.imageView.image = image
                 }
             case .failure(let error):
-                Logging.LogMe("Failed! \(error)")
+//                Logging.LogMe("Failed! \(error)")
                 self?.imageView.image = UIImage(named: ImageConstants.logo)
             }
         }

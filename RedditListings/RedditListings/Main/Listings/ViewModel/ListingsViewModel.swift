@@ -16,7 +16,7 @@ class ListingsViewModel: ObservableObject {
     let topic: Endpoints.Topic
     
     var fullURL: String {
-        topic.createListingsURLString(pagingSize: pagingSize, cursor: listings.last?.id)
+        topic.createListingsURLString(pagingSize: pagingSize, cursor: viewModels.last?.id)
     }
     
     let pagingSize: Int
@@ -25,7 +25,7 @@ class ListingsViewModel: ObservableObject {
         80
     }
     
-    @Published var listings: [ListingViewModel] = []
+    @Published var viewModels: [ListingViewModel] = []
     
     // MARK: Lifecycle
     
@@ -40,11 +40,11 @@ class ListingsViewModel: ObservableObject {
         
         ListingsService.shared.fetchPage(from: fullURL) { [weak self] res in
             switch res {
-            case .success(let listingPage):
-                let vms = listingPage.children.compactMap{ListingViewModel(withData: $0.data)}
-                self?.listings.append(contentsOf: vms)
-                Logging.LogMe("... Success! \(listingPage)")
-                
+            case .success(let pages):
+                for page in pages {
+                    self?.viewModels.append(contentsOf: page.items.compactMap{ListingViewModel(withData: $0)})
+                }
+                Logging.LogMe("... Success! \(pages)")
             case .failure(let error):
                 Logging.LogMe("... FAILED! \(error)")
             }

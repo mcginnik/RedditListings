@@ -8,20 +8,4 @@
 import Foundation
 
 
-class RESTListingsService: ListingsServiceProtocol {
-    
-    func fetchPage(from urlString: String,
-                   completion: @escaping (Result<ListingPage, Error>) -> Void) {
-        guard let url = URL(string: urlString) else {
-            completion(.failure(NetworkError.URLFormatting))
-            return
-        }
-        
-        
-        let request = Request<ListingPage>(url: url)
-        WebService.execute(request: request) { (res) in
-            completion(res)
-        }
-    }
-    
-}
+class RESTListingsService: PageService<ListingPage>, ListingsServiceProtocol {}

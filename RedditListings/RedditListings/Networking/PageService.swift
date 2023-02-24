@@ -1,25 +1,22 @@
 //
-//  RESTCommentsService.swift
+//  PageService.swift
 //  RedditListings
 //
-//  Created by Kyle McGinnis on 2/23/23.
+//  Created by Kyle McGinnis on 2/24/23.
 //
 
 import Foundation
 
-import Foundation
-
-
-class RESTCommentsService: CommentsServiceProtocol {
+class PageService<PageData: Decodable> {
     
     func fetchPage(from urlString: String,
-                   completion: @escaping (Result<[CommentPage], Error>) -> Void) {
+                   completion: @escaping (Result<PageData, Error>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.URLFormatting))
             return
         }
         
-        let request = Request<[CommentPage]>(url: url)
+        let request = Request<PageData>(url: url)
         WebService.execute(request: request) { res in
             completion(res)
         }

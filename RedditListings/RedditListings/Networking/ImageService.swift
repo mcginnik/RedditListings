@@ -32,13 +32,13 @@ class ImageService {
         
         let nsURLString = NSString(string: URLString)
         if let image = cache.object(forKey: nsURLString) as? UIImage {
-            Logging.LogMe("Fetched from cache \(URLString)")
+//            Logging.LogMe("Fetched from cache \(URLString)")
             completion(.success(image))
             return
         }
         
         guard URLString.isValid(regex: .url) else  {
-            Logging.LogMe("Invalid URL \(URLString)")
+//            Logging.LogMe("Invalid URL \(URLString)")
             completion(.failure(ImageServiceError.invalidURL))
             return
         }

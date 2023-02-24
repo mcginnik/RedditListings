@@ -7,7 +7,10 @@
 
 import Foundation
 
-protocol ListingDetailServiceProtocol {}
+protocol ListingDetailServiceProtocol {
+    func fetchPage(from urlString: String,
+                   completion: @escaping (Result<[CommentPage], Error>) -> Void)
+}
 
 enum ListingDetailServiceError: LocalizedError {
     case emptyData
@@ -41,16 +44,15 @@ class ListingDetailService {
     
     // MARK: API
     
-    func fetchComments(forListing listing: Listing,
-                       completion: @escaping (Result<[Comment], Error>) -> Void) {
+    func fetchPage(from urlString: String,
+                   completion: @escaping (Result<[CommentPage], Error>) -> Void){
         Logging.LogMe("...")
-        CommentsService.shared.fetchPage(from: listing.data.id) { res in
+        self.injected?.fetchPage(from: urlString) { res in
             DispatchQueue.main.async {
                 switch res {
                 case .success(let pages):
                     Logging.LogMe("Success!...")
-                    let comments = pages.flatMap{$0.children}
-                    completion(.success(comments))
+                    completion(.success(pages))
                 case .failure(let error):
                     Logging.LogMe("Failed! ... \(error)")
                     completion(.failure(error))

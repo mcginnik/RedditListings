@@ -24,7 +24,7 @@ class ListingsViewController: UIViewController {
     @ObservedObject var viewModel: ListingsViewModel = ListingsViewModel(withTopic: .new)
     
     var listings: [ListingViewModel] {
-        self.viewModel.listings
+        self.viewModel.viewModels
     }
     
     var cancellables: Set<AnyCancellable> = []
@@ -72,7 +72,7 @@ class ListingsViewController: UIViewController {
     // MARK: Subscriptions
     
     private func setupSubscriptions(){
-        viewModel.$listings.sink { _ in
+        viewModel.$viewModels.sink { _ in
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }

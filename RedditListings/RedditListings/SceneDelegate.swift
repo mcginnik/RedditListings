@@ -67,16 +67,11 @@ extension SceneDelegate {
     /// These would ideally not be setup this way but injected with a DI service that confirms that each one has a value at compilation time... I already have a setup for this that I built and there are other solutions out there..  For now just injecting them manually here
     private func injectServices(){
         injectListingsService()
-        injectCommentsService()
         injectListingDetailService()
     }
     
     private func injectListingsService() {
         ListingsService.setup(with: RESTListingsService())
-    }
-    
-    private func injectCommentsService() {
-        CommentsService.setup(with: RESTCommentsService())
     }
     
     private func injectListingDetailService() {

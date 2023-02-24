@@ -11,25 +11,26 @@ import Foundation
 
 struct CommentPage : Decodable {
     let kind: String
-    let data: CommentPageData
+    let data: CommentList
     
-    var children: [Comment] {
-        return data.children
+    var items: [Comment] {
+        return data.children.map { $0.data }
     }
 }
 
-struct CommentPageData: Decodable {
-    let children: [Comment]
+struct CommentList: Decodable {
+    let children: [CommentContainer]
     let modhash: String
 }
 
-struct Comment: Decodable {
-    let data: CommentData
+struct CommentContainer: Decodable {
+    let data: Comment
     let kind: String?
 }
 
-struct CommentData: Decodable, Equatable, Hashable {
+struct Comment: Decodable, Equatable, Hashable {
     let id: String
+    let title: String?
     let author: String
     let subtitle: String?
     let body: String?

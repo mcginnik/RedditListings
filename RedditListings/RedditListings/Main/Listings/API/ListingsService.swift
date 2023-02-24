@@ -45,17 +45,18 @@ class ListingsService {
     // MARK: API
     
     func fetchPage(from urlString: String,
-                   completion: @escaping (Result<ListingPage, Error>) -> Void) {
+                   completion: @escaping (Result<[ListingPage], Error>) -> Void){
         Logging.LogMe("...")
-        injected?.fetchPage(from: urlString) { res in
+        self.injected?.fetchPage(from: urlString) { res in
             DispatchQueue.main.async {
                 switch res {
-                case .success:
+                case .success(let page):
                     Logging.LogMe("Success!...")
+                    completion(.success([page]))
                 case .failure(let error):
                     Logging.LogMe("Failed! ... \(error)")
+                    completion(.failure(error))
                 }
-                completion(res)
             }
         }
     }

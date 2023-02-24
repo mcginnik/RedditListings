@@ -7,8 +7,4 @@
 
 import Foundation
 
-class RESTListingDetailService: ListingDetailServiceProtocol {
-    
-
-    
-}
+class RESTListingDetailService: PageService<[CommentPage]>, ListingDetailServiceProtocol {}

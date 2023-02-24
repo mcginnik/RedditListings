@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CommentCell: SectionCell {
+class CommentCell: ListCell {
     
     // MARK: Properties
     
