@@ -10,16 +10,21 @@ import Combine
 
 class ListingsViewModel: ListViewModel<ListingViewModel> {
     
-    let topic: Endpoints.Topic
+    private (set) var topic: Endpoints.Topic = .new
     
     override var fullURL: String {
         topic.createListingsURLString(pagingSize: pagingSize, cursor: data.last?.id)
     }
     
-    init(withTopic topic: Endpoints.Topic, pagingSize: Int = 20) {
-        self.topic = topic
+    required init(pagingSize: Int) {
         super.init(pagingSize: pagingSize)
+        
+        /// Set Page Fetching Service
         fetchPageFromURL = ListingsService.shared.fetchPage
+    }
+    
+    func setTopic(_ topic: Endpoints.Topic){
+        self.topic = topic
     }
     
 }

@@ -13,7 +13,7 @@ class ListingDetailViewModel: ListViewModel<CommentViewModel> {
     
     // MARK: Properties
     
-    let listingID: String
+    var listingID: String = ""
     
     override var fullURL: String {
         Endpoints.createCommentURLString(listingID: listingID,
@@ -23,13 +23,19 @@ class ListingDetailViewModel: ListViewModel<CommentViewModel> {
     
     // MARK: Lifecycle
     
-    init(listingID: String, pagingSize: Int = 20) {
-        self.listingID = listingID
+    required init(pagingSize: Int) {
         super.init(pagingSize: pagingSize)
+        
+        /// Set Page Fetching Service
         fetchPageFromURL = ListingDetailService.shared.fetchPage
     }
     
+    
     // MARK: Helpers
+    
+    func setListingID(_ id: String){
+        self.listingID = id
+    }
     
     override func cellHeight(forIndexPath indexPath: IndexPath) -> CGFloat {
         let height: CGFloat = 200

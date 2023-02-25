@@ -17,22 +17,22 @@ class ListViewModel<CD: ListCellDataProtocol>: ObservableObject {
         ""
     }
     
-    let pagingSize: Int
+    var pagingSize: Int
     
     @Published var data: [CD] = []
     
     var idSet: Set<String> = []
     
     var fetchPageFromURL: (String, @escaping (Result<[CD.P], Error>) -> Void) -> Void = { _,_  in }
-
+    
     // MARK: Lifecycle
     
-    init(pagingSize: Int = 20){
+    required init(pagingSize: Int){
         self.pagingSize = pagingSize
     }
     
     // MARK: API
-    
+
     func fetchNextPage(){
         fetchPageFromURL{ [weak self] res in
             guard let strongSelf = self else { return }
@@ -52,7 +52,7 @@ class ListViewModel<CD: ListCellDataProtocol>: ObservableObject {
         }
     }
     
-    func fetchPageFromURL(completion: @escaping (Result<[CD.P], Error>) -> Void ){
+    private func fetchPageFromURL(completion: @escaping (Result<[CD.P], Error>) -> Void ){
         fetchPageFromURL(fullURL, completion)
     }
     
