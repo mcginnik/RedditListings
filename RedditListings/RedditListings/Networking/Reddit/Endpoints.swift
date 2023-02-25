@@ -41,7 +41,7 @@ struct Endpoints {
     static func createCommentURLString(listingID: String, pagingSize: Int?, cursor: String?) -> String {
         let suffix = String(format: comments, listingID)
         let url = createURLString(suffix: suffix, pagingSize: pagingSize, cursor: cursor)
-        Logging.LogMe("commenturl \(url)")
+//        Logging.LogMe("commenturl \(url)")
         return url
     }
     

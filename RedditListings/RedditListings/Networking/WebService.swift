@@ -48,7 +48,7 @@ struct WebService {
         urlRequest.httpBody = request.body
         urlRequest.httpMethod = request.httpMethod.rawValue
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        Logging.LogMe("...STARTING url \(request.url)")
+//        Logging.LogMe("...STARTING url \(request.url)")
 
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
@@ -60,8 +60,8 @@ struct WebService {
             
             do {
                 let dataDict = try? data.asDictionary()
-                Logging.LogMe("... url \(request.url)")
-                Logging.LogMe("... data \(dataDict ?? [:])")
+//                Logging.LogMe("... url \(request.url)")
+//                Logging.LogMe("... data \(dataDict ?? [:])")
                 let result = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(result))
             } catch {

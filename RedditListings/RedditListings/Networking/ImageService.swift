@@ -26,24 +26,32 @@ class ImageService {
         return c
     }()
     
+    var inProgress: Set<String> = []
+    
     private init(){}
     
-    func fetchImage(_ URLString: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
+    func fetchImage(_ urlString: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
         
-        let nsURLString = NSString(string: URLString)
+        let nsURLString = NSString(string: urlString)
         if let image = cache.object(forKey: nsURLString) as? UIImage {
 //            Logging.LogMe("Fetched from cache \(URLString)")
             completion(.success(image))
             return
         }
         
-        guard URLString.isValid(regex: .jpgImageURL) else  {
+        guard urlString.isValid(regex: .jpgImageURL) else  {
 //            Logging.LogMe("Invalid URL \(URLString)")
             completion(.failure(ImageServiceError.invalidURL))
             return
         }
         
-        let formattedURLString = URLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        guard !inProgress.contains(urlString) else {
+            completion(.failure(NetworkError.queryInProgress))
+            return
+        }
+        inProgress.insert(urlString)
+        
+        let formattedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         if let url = URL(string: formattedURLString) {
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 if error != nil {
@@ -54,6 +62,7 @@ class ImageService {
                     if let data = data, let image = UIImage(data: data) {
                         self?.cache.setObject(image, forKey: nsURLString)
                         completion(.success(image))
+                        self?.inProgress.remove(urlString)
                     }
                 }
             }).resume()

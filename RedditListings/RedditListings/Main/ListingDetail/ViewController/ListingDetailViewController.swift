@@ -32,7 +32,7 @@ class ListingDetailViewController: UIViewController {
     // MARK: Lifecycle
 
     init(withListing listing: ListingViewModel){
-        self.viewModel = ListingDetailViewModel(listingViewModel: listing, pagingSize: 5)
+        self.viewModel = ListingDetailViewModel(listingViewModel: listing, pagingSize: 20)
         super.init(nibName: nil, bundle: nil)
         setupViews()
     }

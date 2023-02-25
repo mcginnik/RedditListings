@@ -39,7 +39,6 @@ class ListingsViewModel: ObservableObject {
     // MARK: API
     
     func fetchNextPage(){
-        
         ListingsService.shared.fetchPage(from: fullURL) { [weak self] res in
             guard let strongSelf = self else { return }
             switch res {
@@ -52,7 +51,6 @@ class ListingsViewModel: ObservableObject {
                         Logging.LogMe("Skipping!  Alraady Exists.")
                     }
                 }
-                Logging.LogMe("... Success! \(pages)")
             case .failure(let error):
                 Logging.LogMe("... FAILED! \(error)")
             }

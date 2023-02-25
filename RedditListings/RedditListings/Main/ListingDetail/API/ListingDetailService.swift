@@ -48,16 +48,7 @@ class ListingDetailService {
                    completion: @escaping (Result<[CommentPage], Error>) -> Void){
         Logging.LogMe("...")
         self.injected?.fetchPage(from: urlString) { res in
-            DispatchQueue.main.async {
-                switch res {
-                case .success(let pages):
-                    Logging.LogMe("Success!...")
-                    completion(.success(pages))
-                case .failure(let error):
-                    Logging.LogMe("Failed! ... \(error)")
-                    completion(.failure(error))
-                }
-            }
+            completion(res)
         }
     }
 
