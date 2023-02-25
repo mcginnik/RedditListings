@@ -30,10 +30,6 @@ class CommentViewModel: ObservableObject {
         model.author ?? ""
     }
     
-    var createdAt: Double {
-        model.createdAt
-    }
-    
     var subtitle: String? {
         return model.subtitle
     }
@@ -41,6 +37,10 @@ class CommentViewModel: ObservableObject {
     var imageURL: String? {
         let isValidURL = model.url?.isValid(regex: .jpgImageURL) ?? false
         return isValidURL ? model.url : model.thumbnail
+    }
+    
+    var createdAt: Double {
+        model.createdAt
     }
             
     // MARK: Lifecycle

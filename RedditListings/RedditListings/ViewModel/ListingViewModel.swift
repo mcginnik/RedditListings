@@ -37,6 +37,10 @@ class ListingViewModel: ObservableObject {
     var imageURL: String? {
         model.thumbnail
     }
+    
+    var createdAt: Double {
+        model.createdAt
+    }
             
     // MARK: Lifecycle
     
@@ -48,3 +52,19 @@ class ListingViewModel: ObservableObject {
 }
 
 extension ListingViewModel: ListCellDataProtocol {}
+
+extension ListingViewModel: Hashable, Comparable {
+
+    static func == (lhs: ListingViewModel, rhs: ListingViewModel) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func < (lhs: ListingViewModel, rhs: ListingViewModel) -> Bool {
+        lhs.createdAt < rhs.createdAt
+    }
+    
+}
