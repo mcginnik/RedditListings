@@ -8,12 +8,14 @@
 import UIKit
 
 protocol ListCellDataProtocol {
+    associatedtype P: PageProtocol
     var id: String { get }
     var title: String { get }
     var subtitle: String? { get }
     var body: String? { get }
     var caption: String { get }
     var imageURL: String? { get }
+    init(withData model: P.I)
     func fetchImage(completion: @escaping (Result<(UIImage, String), Error>) -> Void)
 }
 

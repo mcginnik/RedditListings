@@ -1,11 +1,21 @@
 //
-//  ItemList.swift
+//  ItemProtocol.swift
 //  RedditListings
 //
 //  Created by Kyle McGinnis on 2/24/23.
 //
 
 import Foundation
+
+struct ItemList<Item: ItemProtocol>: Decodable {
+    let children: [ItemContainer<Item>]
+    let modhash: String
+}
+
+struct ItemContainer<Item: ItemProtocol>: Decodable {
+    let data: Item
+    let kind: String?
+}
 
 protocol ItemProtocol: Decodable {
     var id: String { get }
@@ -17,12 +27,4 @@ protocol ItemProtocol: Decodable {
     var created: Double? { get }
 }
 
-struct ItemList<Item: ItemProtocol>: Decodable {
-    let children: [ItemContainer<Item>]
-    let modhash: String
-}
 
-struct ItemContainer<Item: ItemProtocol>: Decodable {
-    let data: Item
-    let kind: String?
-}

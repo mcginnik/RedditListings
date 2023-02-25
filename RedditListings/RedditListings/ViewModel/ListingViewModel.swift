@@ -47,14 +47,16 @@ class ListingViewModel: ObservableObject {
             
     // MARK: Lifecycle
     
-    init(withData model: Listing){
+    required init(withData model: Listing){
         self.model = model
     }
 
     
 }
 
-extension ListingViewModel: ListCellDataProtocol {}
+extension ListingViewModel: ListCellDataProtocol {
+    typealias P = ListingPage
+}
 
 extension ListingViewModel: Hashable, Comparable {
 

@@ -1,5 +1,5 @@
 //
-//  Comment.swift
+//  Listing.swift
 //  RedditListings
 //
 //  Created by Kyle McGinnis on 2/22/23.
@@ -7,16 +7,7 @@
 
 import Foundation
 
-struct CommentPage : Decodable {
-    let kind: String
-    let data: ItemList<Comment>
-    
-    var items: [Comment] {
-        return data.children.map { $0.data }
-    }
-}
-
-struct Comment: ItemProtocol, Equatable, Hashable {
+struct Listing: ItemProtocol, Equatable, Hashable {
     let id: String
     var title: String?
     var author: String?

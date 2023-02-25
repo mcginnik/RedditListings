@@ -9,57 +9,29 @@ import Foundation
 import Combine
 import SwiftUI
 
-class ListingDetailViewModel: ObservableObject {
+class ListingDetailViewModel: ListViewModel<CommentViewModel> {
     
     // MARK: Properties
     
-    let baseURL: String = AppConfig.shared.baseURLString
+    let listingID: String
     
-    var fullURL: String {
-        Endpoints.createCommentURLString(listingID: listingViewModel.id,
+    override var fullURL: String {
+        Endpoints.createCommentURLString(listingID: listingID,
                                          pagingSize: pagingSize,
-                                         cursor: viewModels.last?.id)
+                                         cursor: data.last?.id)
     }
-    
-    let pagingSize: Int
-    
-    @Published var viewModels: [CommentViewModel] = []
-    
-    var idSet: Set<String> = []
-    
-    @ObservedObject var listingViewModel: ListingViewModel
     
     // MARK: Lifecycle
     
-    init(listingViewModel: ListingViewModel, pagingSize: Int = 20){
-        self.listingViewModel = listingViewModel
-        self.pagingSize = pagingSize
+    init(listingID: String, pagingSize: Int = 20) {
+        self.listingID = listingID
+        super.init(pagingSize: pagingSize)
+        fetchPageFromURL = ListingDetailService.shared.fetchPage
     }
     
-    // MARK: API
+    // MARK: Helpers
     
-    func fetchNextPage(){
-        ListingDetailService.shared.fetchPage(from: fullURL) { [weak self] res in
-            guard let strongSelf = self else { return }
-            switch res {
-            case .success(let pages):
-                for item in pages.flatMap({$0.items}) {
-                    if !strongSelf.idSet.contains(item.id) {
-                        strongSelf.viewModels.append(CommentViewModel(withData: item))
-                        strongSelf.idSet.insert(item.id)
-                    } else {
-                        Logging.LogMe("Skipping!  Alraady Exists.")
-                    }
-                }
-                Logging.LogMe("... Success! pages \(pages)")
-                
-            case .failure(let error):
-                Logging.LogMe("... FAILED! \(error)")
-            }
-        }
-    }
-    
-    func cellHeight(forIndexPath indexPath: IndexPath) -> CGFloat {
+    override func cellHeight(forIndexPath indexPath: IndexPath) -> CGFloat {
         let height: CGFloat = 200
         if indexPath.item == 0 {
             return height * 1.5

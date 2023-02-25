@@ -48,13 +48,15 @@ class CommentViewModel: ObservableObject {
             
     // MARK: Lifecycle
     
-    init(withData model: Comment){
+    required init(withData model: Comment){
         self.model = model
     }
     
 }
 
-extension CommentViewModel: ListCellDataProtocol {}
+extension CommentViewModel: ListCellDataProtocol {
+    typealias P = CommentPage
+}
 
 extension CommentViewModel: Hashable, Comparable {
 

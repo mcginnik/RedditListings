@@ -19,7 +19,7 @@ class ListingDetailHeaderCell: CommentCell {
         return 150
     }
     
-    override func configure(with item: ListCellDataProtocol) {
+    override func configure(with item: any ListCellDataProtocol) {
         super.configure(with: item)
         
         self.bodyTextView.text = item.title

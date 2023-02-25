@@ -24,7 +24,7 @@ class ListingsViewController: UIViewController {
     @ObservedObject var viewModel: ListingsViewModel = ListingsViewModel(withTopic: .new)
     
     var listings: [ListingViewModel] {
-        self.viewModel.viewModels
+        self.viewModel.data
     }
     
     var cancellables: Set<AnyCancellable> = []
@@ -73,7 +73,7 @@ class ListingsViewController: UIViewController {
     // MARK: Subscriptions
     
     private func setupSubscriptions(){
-        viewModel.$viewModels.sink { _ in
+        viewModel.$data.sink { _ in
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -132,7 +132,7 @@ extension ListingsViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
-        let height = viewModel.cellHeight
+        let height = viewModel.cellHeight(forIndexPath: indexPath)
         return CGSize(width: width, height: height)
     }
     

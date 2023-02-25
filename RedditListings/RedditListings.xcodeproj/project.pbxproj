@@ -9,8 +9,12 @@
 /* Begin PBXBuildFile section */
 		24FB467865FDDAB0FED553B8 /* Pods_RedditListings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA83E6BF272435E433A07FA /* Pods_RedditListings.framework */; };
 		A7901ED029A90987003565A0 /* PageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7901ECF29A90987003565A0 /* PageService.swift */; };
-		A7901ED229A91169003565A0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7901ED129A91169003565A0 /* Item.swift */; };
+		A7901ED229A91169003565A0 /* ItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7901ED129A91169003565A0 /* ItemProtocol.swift */; };
 		A7901ED429A959FC003565A0 /* ListingDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7901ED329A959FC003565A0 /* ListingDetailHeaderCell.swift */; };
+		A7901ED929A9AF47003565A0 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7901ED829A9AF47003565A0 /* ListViewModel.swift */; };
+		A7901EDB29A9B481003565A0 /* PageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7901EDA29A9B481003565A0 /* PageProtocol.swift */; };
+		A7901EDE29A9B4A7003565A0 /* ListingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7901EDD29A9B4A7003565A0 /* ListingPage.swift */; };
+		A7901EE029A9B4AD003565A0 /* CommentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7901EDF29A9B4AD003565A0 /* CommentPage.swift */; };
 		A79D813729A66FA7001A8CAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D813629A66FA7001A8CAF /* AppDelegate.swift */; };
 		A79D813929A66FA7001A8CAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79D813829A66FA7001A8CAF /* SceneDelegate.swift */; };
 		A79D814029A66FA9001A8CAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A79D813F29A66FA9001A8CAF /* Assets.xcassets */; };
@@ -52,8 +56,12 @@
 /* Begin PBXFileReference section */
 		7AA83E6BF272435E433A07FA /* Pods_RedditListings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RedditListings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7901ECF29A90987003565A0 /* PageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageService.swift; sourceTree = "<group>"; };
-		A7901ED129A91169003565A0 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A7901ED129A91169003565A0 /* ItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemProtocol.swift; sourceTree = "<group>"; };
 		A7901ED329A959FC003565A0 /* ListingDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailHeaderCell.swift; sourceTree = "<group>"; };
+		A7901ED829A9AF47003565A0 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		A7901EDA29A9B481003565A0 /* PageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageProtocol.swift; sourceTree = "<group>"; };
+		A7901EDD29A9B4A7003565A0 /* ListingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingPage.swift; sourceTree = "<group>"; };
+		A7901EDF29A9B4AD003565A0 /* CommentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPage.swift; sourceTree = "<group>"; };
 		A79D813329A66FA7001A8CAF /* RedditListings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditListings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79D813629A66FA7001A8CAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A79D813829A66FA7001A8CAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +116,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A7901EDC29A9B490003565A0 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				A7901EDA29A9B481003565A0 /* PageProtocol.swift */,
+				A7901EDD29A9B4A7003565A0 /* ListingPage.swift */,
+				A7901EDF29A9B4AD003565A0 /* CommentPage.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		A7901EE129A9B4DC003565A0 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				A7901ED129A91169003565A0 /* ItemProtocol.swift */,
+				A79D816429A67B3F001A8CAF /* Listing.swift */,
+				A79D81B729A71532001A8CAF /* Comment.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
 		A79D812A29A66FA7001A8CAF = {
 			isa = PBXGroup;
 			children = (
@@ -233,9 +261,8 @@
 		A79D815A29A6787E001A8CAF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A79D816429A67B3F001A8CAF /* Listing.swift */,
-				A79D81B729A71532001A8CAF /* Comment.swift */,
-				A7901ED129A91169003565A0 /* Item.swift */,
+				A7901EE129A9B4DC003565A0 /* Item */,
+				A7901EDC29A9B490003565A0 /* Page */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -417,6 +444,7 @@
 		A79D81D429A82B70001A8CAF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A7901ED829A9AF47003565A0 /* ListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -538,7 +566,8 @@
 			files = (
 				A79D815929A676AB001A8CAF /* ListingsViewModel.swift in Sources */,
 				A79D81C829A7B079001A8CAF /* CommentCell.swift in Sources */,
-				A7901ED229A91169003565A0 /* Item.swift in Sources */,
+				A7901EE029A9B4AD003565A0 /* CommentPage.swift in Sources */,
+				A7901ED229A91169003565A0 /* ItemProtocol.swift in Sources */,
 				A79D81BA29A7158D001A8CAF /* RESTListingDetailService.swift in Sources */,
 				A79D817629A6806C001A8CAF /* Endpoints.swift in Sources */,
 				A79D81D329A81C64001A8CAF /* ListViewController.swift in Sources */,
@@ -550,6 +579,7 @@
 				A79D816E29A67DBF001A8CAF /* ListingsService.swift in Sources */,
 				A79D81B229A6F3D8001A8CAF /* ImageConstants.swift in Sources */,
 				A79D817F29A69DB9001A8CAF /* ListingDetailViewController.swift in Sources */,
+				A7901ED929A9AF47003565A0 /* ListViewModel.swift in Sources */,
 				A79D81A829A6D7C1001A8CAF /* AnchoredConstraints.swift in Sources */,
 				A79D816529A67B3F001A8CAF /* Listing.swift in Sources */,
 				A79D816B29A67D56001A8CAF /* Logging.swift in Sources */,
@@ -568,9 +598,11 @@
 				A79D81B829A71532001A8CAF /* Comment.swift in Sources */,
 				A7901ED029A90987003565A0 /* PageService.swift in Sources */,
 				A79D813929A66FA7001A8CAF /* SceneDelegate.swift in Sources */,
+				A7901EDE29A9B4A7003565A0 /* ListingPage.swift in Sources */,
 				A79D81BE29A7AC12001A8CAF /* CommentViewModel.swift in Sources */,
 				A79D815329A674F0001A8CAF /* ListingsViewController.swift in Sources */,
 				A79D81BC29A7A99F001A8CAF /* ListingDetailViewModel.swift in Sources */,
+				A7901EDB29A9B481003565A0 /* PageProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

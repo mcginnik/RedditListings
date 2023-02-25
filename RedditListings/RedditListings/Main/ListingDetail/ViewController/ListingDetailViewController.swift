@@ -26,13 +26,13 @@ class ListingDetailViewController: UIViewController {
 
     
     var comments: [CommentViewModel] {
-        self.viewModel.viewModels
+        self.viewModel.data
     }
     
     // MARK: Lifecycle
 
     init(withListing listing: ListingViewModel){
-        self.viewModel = ListingDetailViewModel(listingViewModel: listing, pagingSize: 20)
+        self.viewModel = ListingDetailViewModel(listingID: listing.id, pagingSize: 20)
         super.init(nibName: nil, bundle: nil)
         setupViews()
     }
@@ -71,7 +71,7 @@ class ListingDetailViewController: UIViewController {
     // MARK: Subscriptions
     
     private func setupSubscriptions(){
-        viewModel.$viewModels.sink { _ in
+        viewModel.$data.sink { _ in
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }

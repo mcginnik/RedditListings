@@ -94,7 +94,7 @@ class ListCell: UICollectionViewCell, CellConfiguring {
     
     // MARK: Cell Configuration
     
-    func configure(with item: ListCellDataProtocol) {
+    func configure(with item: any ListCellDataProtocol) {
         titleLabel.text = item.title
         subtitleLabel.text = item.subtitle
         captionLabel.text = item.caption
@@ -102,7 +102,7 @@ class ListCell: UICollectionViewCell, CellConfiguring {
         configureImageView(with: item)
     }
         
-    private func configureImageView(with item: ListCellDataProtocol){
+    private func configureImageView(with item: any ListCellDataProtocol){
 
         if self.imageURL != item.imageURL {
             self.imageView.image = nil
