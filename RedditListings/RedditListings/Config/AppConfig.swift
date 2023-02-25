@@ -13,9 +13,9 @@ public class AppConfig {
 
     static let shared: AppConfig = AppConfig()
     
-    private (set) var loggingLevel: LoggingLevel = .medium
+    private (set) var loggingLevel: LoggingLevel = .high
     
-    private (set) var baseURLString = RedditEndpoints.baseURL
+    private (set) var baseURLString = Endpoints.baseURL
     
     // MARK: - Lifecycle
 

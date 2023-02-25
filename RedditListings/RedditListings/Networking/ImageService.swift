@@ -8,7 +8,8 @@
 import UIKit
 
 enum ImageServiceError: Error {
-    case Fetch
+    case fetch
+    case invalidURL
 }
 
 class ImageService {
@@ -25,31 +26,44 @@ class ImageService {
         return c
     }()
     
+    var inProgress: Set<String> = []
+    
     private init(){}
     
-    func fetchImage(_ URLString: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
+    func fetchImage(_ urlString: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
         
-        let nsURLString = NSString(string: URLString)
+        let nsURLString = NSString(string: urlString)
         if let image = cache.object(forKey: nsURLString) as? UIImage {
-            Logging.LogMe("Fetched from cache \(URLString)")
+//            Logging.LogMe("Fetched from cache \(URLString)")
             completion(.success(image))
             return
         }
-        let formattedURLString = URLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-    
+        
+        guard urlString.isValid(regex: .jpgImageURL) else  {
+//            Logging.LogMe("Invalid URL \(URLString)")
+            completion(.failure(ImageServiceError.invalidURL))
+            return
+        }
+        
+        guard !inProgress.contains(urlString) else {
+            completion(.failure(NetworkError.queryInProgress))
+            return
+        }
+        inProgress.insert(urlString)
+        
+        let formattedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         if let url = URL(string: formattedURLString) {
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                Logging.LogMe("RESPONSE FROM API: \(String(describing: response))")
                 if error != nil {
-                    Logging.LogMe("ERROR LOADING IMAGES FROM URL: \(String(describing: error))")
-                    completion(.failure(ImageServiceError.Fetch))
+                    completion(.failure(ImageServiceError.fetch))
                     return
                 }
                 DispatchQueue.main.async { [ weak self ] in
                     if let data = data, let image = UIImage(data: data) {
-                            self?.cache.setObject(image, forKey: nsURLString)
-                            completion(.success(image))
-                        }
+                        self?.cache.setObject(image, forKey: nsURLString)
+                        completion(.success(image))
+                        self?.inProgress.remove(urlString)
+                    }
                 }
             }).resume()
         }

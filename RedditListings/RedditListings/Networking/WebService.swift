@@ -8,20 +8,23 @@
 import Foundation
 
 enum NetworkError: Error {
-    case Decoding
-    case Domain
-    case URLFormatting
+    case decoding
+    case domain
+    case urlFormatting
+    case queryInProgress
 }
 
 extension NetworkError: LocalizedError {
     public var errorDescription: String? {
         switch self {
-        case .Decoding:
+        case .decoding:
             return NSLocalizedString("Error Decoding Data...", comment: "No Data Returned because it may be badly formed...")
-        case .Domain:
+        case .domain:
             return NSLocalizedString("Error Fetching Data... Bad Domain", comment: "Check the URL...")
-        case .URLFormatting:
+        case .urlFormatting:
             return NSLocalizedString("Error Fetching Data... Badly formed URL...", comment: "Bad URL Format...")
+        case .queryInProgress:
+            return NSLocalizedString("Error Fetching Data... Query already in progress", comment: "Query in progress...")
         }
     }
 }
@@ -32,7 +35,6 @@ enum HttpMethod: String {
     case put = "PUT"
 }
 
-// Just decodable for now
 struct Request< T: Decodable> {
     let url: URL
     var body: Data?
@@ -46,18 +48,20 @@ struct WebService {
         urlRequest.httpBody = request.body
         urlRequest.httpMethod = request.httpMethod.rawValue
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        Logging.LogMe("...STARTING url \(request.url)")
+
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             
             guard let data = data, error == nil else {
-                completion(.failure(NetworkError.Domain))
+                completion(.failure(NetworkError.domain))
                 return
             }
             
             do {
-                let dataDict = try data.asDictionary()
-                Logging.LogMe("... url \(request.url)")
-                Logging.LogMe("... data \(dataDict)")
+                let dataDict = try? data.asDictionary()
+//                Logging.LogMe("... url \(request.url)")
+//                Logging.LogMe("... data \(dataDict ?? [:])")
                 let result = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(result))
             } catch {
@@ -75,7 +79,7 @@ struct WebService {
 extension Data {
   func asDictionary() throws -> [String: Any] {
     guard let dictionary = try JSONSerialization.jsonObject(with: self, options: .allowFragments) as? [String: Any] else {
-      throw NSError()
+        throw DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "IDK"))
     }
     return dictionary
   }

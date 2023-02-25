@@ -9,5 +9,9 @@ import Foundation
 
 struct StringConstants {
     
-    static let listingsTitle = "Listings"
+    static let post = "Listing"
+    static let comment = "Comment"
+    static let postsTitle = "\(post)s"
+    static let commentsTitle = "\(comment)s"
+
 }

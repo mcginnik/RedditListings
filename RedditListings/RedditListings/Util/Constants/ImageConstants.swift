@@ -10,4 +10,5 @@ import Foundation
 struct ImageConstants {
     
     static let logo = "Logo"
+    static let chevronRight = "chevron.right"
 }
