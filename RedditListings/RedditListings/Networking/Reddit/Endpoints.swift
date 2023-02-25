@@ -21,14 +21,14 @@ struct Endpoints {
         case random
         case top
         
-        func createListingsURLString(pagingSize: Int?, cursor: String?) -> String {
-            let suffix = String(format: listings, self.rawValue)
+        func createPostsURLString(pagingSize: Int?, cursor: String?) -> String {
+            let suffix = String(format: posts, self.rawValue)
             let url = Endpoints.createURLString(suffix: suffix, pagingSize: pagingSize, cursor: cursor)
             return url
         }
     }
     
-    static let listings = "/r/all/%@.json"
+    static let posts = "/r/all/%@.json"
     static let comments = "/comments/%@/.json"
     
     // MARK: Token separators
@@ -38,8 +38,8 @@ struct Endpoints {
     static let pagingCursorBeforeToken = "before="
 
     
-    static func createCommentURLString(listingID: String, pagingSize: Int?, cursor: String?) -> String {
-        let suffix = String(format: comments, listingID)
+    static func createCommentURLString(postID: String, pagingSize: Int?, cursor: String?) -> String {
+        let suffix = String(format: comments, postID)
         let url = createURLString(suffix: suffix, pagingSize: pagingSize, cursor: cursor)
 //        Logging.LogMe("commenturl \(url)")
         return url

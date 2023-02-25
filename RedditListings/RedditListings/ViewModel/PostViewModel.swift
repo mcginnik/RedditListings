@@ -1,5 +1,5 @@
 //
-//  ListingViewModel.swift
+//  PostViewModel.swift
 //  RedditListings
 //
 //  Created by Kyle McGinnis on 2/22/23.
@@ -8,11 +8,11 @@
 import UIKit
 import Combine
 
-class ListingViewModel: ObservableObject {
+class PostViewModel: ObservableObject {
     
     // MARK: Properties
     
-    let model: Listing
+    let model: Post
     
     var id: String {
         return model.id
@@ -47,20 +47,20 @@ class ListingViewModel: ObservableObject {
             
     // MARK: Lifecycle
     
-    required init(withData model: Listing){
+    required init(withData model: Post){
         self.model = model
     }
 
     
 }
 
-extension ListingViewModel: ListCellDataProtocol {
-    typealias P = ListingPage
+extension PostViewModel: ListCellDataProtocol {
+    typealias P = PostPage
 }
 
-extension ListingViewModel: Hashable, Comparable {
+extension PostViewModel: Hashable, Comparable {
 
-    static func == (lhs: ListingViewModel, rhs: ListingViewModel) -> Bool {
+    static func == (lhs: PostViewModel, rhs: PostViewModel) -> Bool {
         lhs.id == rhs.id
     }
     
@@ -68,7 +68,7 @@ extension ListingViewModel: Hashable, Comparable {
         hasher.combine(id)
     }
     
-    static func < (lhs: ListingViewModel, rhs: ListingViewModel) -> Bool {
+    static func < (lhs: PostViewModel, rhs: PostViewModel) -> Bool {
         lhs.createdAt < rhs.createdAt
     }
     

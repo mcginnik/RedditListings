@@ -1,5 +1,5 @@
 //
-//  ListingDetailService.swift
+//  PostDetailService.swift
 //  RedditListings
 //
 //  Created by Kyle McGinnis on 2/22/23.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol ListingDetailServiceProtocol {
+protocol PostDetailServiceProtocol {
     func fetchPage(from urlString: String,
                    completion: @escaping (Result<[CommentPage], Error>) -> Void)
 }
 
-enum ListingDetailServiceError: LocalizedError {
+enum PostDetailServiceError: LocalizedError {
     case emptyData
 
     var errorDescription: String? {
@@ -23,22 +23,22 @@ enum ListingDetailServiceError: LocalizedError {
     }
 }
 
-class ListingDetailService {
+class PostDetailService {
     
     // MARK: Properties
     
-    static let shared = ListingDetailService()
+    static let shared = PostDetailService()
 
     /// Allowing for Dependency injection here, calling the injected service instead of directly  so you can easily swap out if need be
     /// Would instead have this be an automatic static injection setup so that all services are set at complie time, but this is a simple way of doing it for now
     ///
-    var injected: ListingDetailServiceProtocol?
+    var injected: PostDetailServiceProtocol?
     
     // MARK: Lifecycle
     
     private init(){}
     
-    static func setup(with service: ListingDetailServiceProtocol){
+    static func setup(with service: PostDetailServiceProtocol){
         self.shared.injected = service
     }
     

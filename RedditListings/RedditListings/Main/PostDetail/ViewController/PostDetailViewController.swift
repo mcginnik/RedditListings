@@ -1,5 +1,5 @@
 //
-//  ListingDetailViewController.swift
+//  PostDetailViewController.swift
 //  RedditListings
 //
 //  Created by Kyle McGinnis on 2/22/23.
@@ -9,15 +9,15 @@ import UIKit
 import Combine
 import SwiftUI
 
-class ListingDetailViewController: ListViewController<CommentViewModel, ListingDetailViewModel> {
+class PostDetailViewController: ListViewController<CommentViewModel, PostDetailViewModel> {
     
     //MARK: Lifecycle
 
-    init(withListing listing: ListingViewModel,
+    init(withPost post: PostViewModel,
          didTapItem: ((CommentViewModel) -> Void)? = nil,
          pagingSize: Int = 20) {
         super.init(didTapItem: didTapItem, pagingSize: pagingSize)
-        viewModel.setListingID(listing.id)
+        viewModel.setPostID(post.id)
     }
     
     required init?(coder: NSCoder) {
@@ -33,14 +33,14 @@ class ListingDetailViewController: ListViewController<CommentViewModel, ListingD
     
     override func registerCells() {
         collectionView.register(CommentCell.self, forCellWithReuseIdentifier: CommentCell.reuseID)
-        collectionView.register(ListingDetailHeaderCell.self, forCellWithReuseIdentifier: ListingDetailHeaderCell.reuseID)
+        collectionView.register(PostDetailHeaderCell.self, forCellWithReuseIdentifier: PostDetailHeaderCell.reuseID)
     }
     
     override func dequeueConfigurableCell(forIndexPath indexPath: IndexPath) -> ListCell {
         let cell: ListCell
         if indexPath.item == 0 {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListingDetailHeaderCell.reuseID,
-                                                      for: indexPath) as! ListingDetailHeaderCell
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostDetailHeaderCell.reuseID,
+                                                      for: indexPath) as! PostDetailHeaderCell
         } else {
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: CommentCell.reuseID,
                                                       for: indexPath) as! CommentCell

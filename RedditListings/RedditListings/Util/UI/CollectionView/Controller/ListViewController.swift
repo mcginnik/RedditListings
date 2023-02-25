@@ -24,12 +24,12 @@ class ListViewController<CD: ListCellDataProtocol, VM: ListViewModel<CD>>: UIVie
 
     @ObservedObject var viewModel: VM
     
-    var listings: [CD] {
+    var items: [CD] {
         self.viewModel.data
     }
     
     var cancellables: Set<AnyCancellable> = []
-    var didTapItem: (_ listing: CD) -> Void = { _ in }
+    var didTapItem: (_ item: CD) -> Void = { _ in }
 
     // MARK: Lifecycle
     
@@ -89,7 +89,7 @@ class ListViewController<CD: ListCellDataProtocol, VM: ListViewModel<CD>>: UIVie
     
     private func didLoadCellAtIndex(_ index: Int){
         // Fetch Next Page if we are at the end of the list
-        if index == listings.count - 1{
+        if index == items.count - 1{
             fetchNextPage()
         }
     }
@@ -102,19 +102,19 @@ class ListViewController<CD: ListCellDataProtocol, VM: ListViewModel<CD>>: UIVie
 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        didTapItem(listings[indexPath.item])
+        didTapItem(items[indexPath.item])
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listings.count
+        return items.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = dequeueConfigurableCell(forIndexPath: indexPath)
-        let listing = listings[indexPath.item]
+        let item = items[indexPath.item]
         
-        cell.configure(with: listing)
+        cell.configure(with: item)
         
         didLoadCellAtIndex(indexPath.item)
         

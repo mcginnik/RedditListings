@@ -1,5 +1,5 @@
 //
-//  ListingDetailViewModel.swift
+//  PostDetailViewModel.swift
 //  RedditListings
 //
 //  Created by Kyle McGinnis on 2/23/23.
@@ -9,14 +9,14 @@ import Foundation
 import Combine
 import SwiftUI
 
-class ListingDetailViewModel: ListViewModel<CommentViewModel> {
+class PostDetailViewModel: ListViewModel<CommentViewModel> {
     
     // MARK: Properties
     
-    var listingID: String = ""
+    var postID: String = ""
     
     override var fullURL: String {
-        Endpoints.createCommentURLString(listingID: listingID,
+        Endpoints.createCommentURLString(postID: postID,
                                          pagingSize: pagingSize,
                                          cursor: data.last?.id)
     }
@@ -27,14 +27,14 @@ class ListingDetailViewModel: ListViewModel<CommentViewModel> {
         super.init(pagingSize: pagingSize)
         
         /// Set Page Fetching Service
-        fetchPageFromURL = ListingDetailService.shared.fetchPage
+        fetchPageFromURL = PostDetailService.shared.fetchPage
     }
     
     
     // MARK: Helpers
     
-    func setListingID(_ id: String){
-        self.listingID = id
+    func setPostID(_ id: String){
+        self.postID = id
     }
     
     override func cellHeight(forIndexPath indexPath: IndexPath) -> CGFloat {

@@ -1,5 +1,5 @@
 //
-//  Listing.swift
+//  Post.swift
 //  RedditListings
 //
 //  Created by Kyle McGinnis on 2/22/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Listing: ItemProtocol, Equatable, Hashable {
+struct Post: ItemProtocol, Equatable, Hashable {
     let id: String
     var title: String?
     var author: String?
