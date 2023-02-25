@@ -17,7 +17,7 @@ class ListingCell: ListCell {
     
     var rightArrow: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(systemName: "chevron.right")
+        iv.image = UIImage(systemName: ImageConstants.chevronRight)
         iv.tintColor = .lightGray
         return iv
     }()

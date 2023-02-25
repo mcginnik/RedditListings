@@ -8,20 +8,23 @@
 import Foundation
 
 enum NetworkError: Error {
-    case Decoding
-    case Domain
-    case URLFormatting
+    case decoding
+    case domain
+    case urlFormatting
+    case queryInProgress
 }
 
 extension NetworkError: LocalizedError {
     public var errorDescription: String? {
         switch self {
-        case .Decoding:
+        case .decoding:
             return NSLocalizedString("Error Decoding Data...", comment: "No Data Returned because it may be badly formed...")
-        case .Domain:
+        case .domain:
             return NSLocalizedString("Error Fetching Data... Bad Domain", comment: "Check the URL...")
-        case .URLFormatting:
+        case .urlFormatting:
             return NSLocalizedString("Error Fetching Data... Badly formed URL...", comment: "Bad URL Format...")
+        case .queryInProgress:
+            return NSLocalizedString("Error Fetching Data... Query already in progress", comment: "Query in progress...")
         }
     }
 }
@@ -51,7 +54,7 @@ struct WebService {
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             
             guard let data = data, error == nil else {
-                completion(.failure(NetworkError.Domain))
+                completion(.failure(NetworkError.domain))
                 return
             }
             

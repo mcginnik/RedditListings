@@ -27,14 +27,7 @@ class ListingsViewModel: ObservableObject {
     
     @Published var viewModels: [ListingViewModel] = []
     
-    var viewModelSet: Set<ListingViewModel> = [] {
-        didSet {
-            if oldValue != viewModelSet  {
-                self.viewModels = viewModelSet.sorted()
-                print("resorting")
-            }
-        }
-    }
+    var idSet: Set<String> = []
     
     // MARK: Lifecycle
     
@@ -52,7 +45,12 @@ class ListingsViewModel: ObservableObject {
             switch res {
             case .success(let pages):
                 for item in pages.flatMap({$0.items}) {
-                    strongSelf.viewModelSet.insert(ListingViewModel(withData: item))
+                    if !strongSelf.idSet.contains(item.id) {
+                        strongSelf.viewModels.append(ListingViewModel(withData: item))
+                        strongSelf.idSet.insert(item.id)
+                    } else {
+                        Logging.LogMe("Skipping!  Alraady Exists.")
+                    }
                 }
                 Logging.LogMe("... Success! \(pages)")
             case .failure(let error):

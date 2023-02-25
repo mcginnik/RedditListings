@@ -27,7 +27,7 @@ class CommentCell: ListCell {
     
     override func configure(with item: ListCellDataProtocol) {
         super.configure(with: item)
-        bodyTextView.text = item.id
+        self.bodyTextView.text = item.body
         Logging.LogMe("set body text!: \(item.body)")
     }
     // MARK: Views

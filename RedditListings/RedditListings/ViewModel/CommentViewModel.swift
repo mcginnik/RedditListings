@@ -27,7 +27,10 @@ class CommentViewModel: ObservableObject {
     }
     
     var caption: String {
-        model.author ?? ""
+        if let author = model.author {
+            return "@\(author)"
+        }
+        return ""
     }
     
     var subtitle: String? {
@@ -40,7 +43,7 @@ class CommentViewModel: ObservableObject {
     }
     
     var createdAt: Double {
-        model.createdAt
+        model.created ?? 0
     }
             
     // MARK: Lifecycle

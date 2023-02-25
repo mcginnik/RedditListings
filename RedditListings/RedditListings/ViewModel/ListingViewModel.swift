@@ -31,7 +31,10 @@ class ListingViewModel: ObservableObject {
     }
     
     var caption: String {
-        return "@\(model.author)"
+        if let author = model.author {
+            return "@\(author)"
+        }
+        return ""
     }
     
     var imageURL: String? {
@@ -39,7 +42,7 @@ class ListingViewModel: ObservableObject {
     }
     
     var createdAt: Double {
-        model.createdAt
+        model.created ?? 0
     }
             
     // MARK: Lifecycle

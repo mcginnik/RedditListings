@@ -25,14 +25,7 @@ class ListingDetailViewModel: ObservableObject {
     
     @Published var viewModels: [CommentViewModel] = []
     
-    var viewModelSet: Set<CommentViewModel> = [] {
-        didSet {
-            if oldValue != viewModelSet  {
-                self.viewModels = viewModelSet.sorted()
-                print("resorting")
-            }
-        }
-    }
+    var idSet: Set<String> = []
     
     @ObservedObject var listingViewModel: ListingViewModel
     
@@ -51,7 +44,12 @@ class ListingDetailViewModel: ObservableObject {
             switch res {
             case .success(let pages):
                 for item in pages.flatMap({$0.items}) {
-                    strongSelf.viewModelSet.insert(CommentViewModel(withData: item))
+                    if !strongSelf.idSet.contains(item.id) {
+                        strongSelf.viewModels.append(CommentViewModel(withData: item))
+                        strongSelf.idSet.insert(item.id)
+                    } else {
+                        Logging.LogMe("Skipping!  Alraady Exists.")
+                    }
                 }
                 Logging.LogMe("... Success! pages \(pages)")
                 

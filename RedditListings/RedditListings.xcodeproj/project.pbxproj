@@ -190,8 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				A79D81B329A71418001A8CAF /* API */,
-				A79D817D29A69D86001A8CAF /* ViewModel */,
 				A79D817B29A69D74001A8CAF /* ViewController */,
+				A79D817D29A69D86001A8CAF /* ViewModel */,
 				A79D817C29A69D82001A8CAF /* View */,
 			);
 			path = ListingDetail;

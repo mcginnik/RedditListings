@@ -14,7 +14,7 @@ protocol ItemProtocol: Decodable {
     var subtitle: String? { get set }
     var body: String? { get set }
     var thumbnail: String? { get set }
-    var createdAt: Double { get }
+    var created: Double? { get }
 }
 
 struct ItemList<Item: ItemProtocol>: Decodable {
