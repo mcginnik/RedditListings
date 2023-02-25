@@ -10,7 +10,7 @@ import Foundation
 protocol ItemProtocol: Decodable {
     var id: String { get }
     var title: String? { get set }
-    var author: String { get set }
+    var author: String? { get set }
     var subtitle: String? { get set }
     var body: String? { get set }
     var thumbnail: String? { get set }

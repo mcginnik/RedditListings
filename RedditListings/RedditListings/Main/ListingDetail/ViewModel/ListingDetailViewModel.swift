@@ -24,6 +24,16 @@ class ListingDetailViewModel: ObservableObject {
     let pagingSize: Int
     
     @Published var viewModels: [CommentViewModel] = []
+    
+    var viewModelSet: Set<CommentViewModel> = [] {
+        didSet {
+            if oldValue != viewModelSet  {
+                self.viewModels = viewModelSet.sorted()
+                print("resorting")
+            }
+        }
+    }
+    
     @ObservedObject var listingViewModel: ListingViewModel
     
     // MARK: Lifecycle
@@ -41,12 +51,9 @@ class ListingDetailViewModel: ObservableObject {
             switch res {
             case .success(let pages):
                 for item in pages.flatMap({$0.items}) {
-                    if let _ = strongSelf.viewModels.first(where: {$0.id == item.id }) {
-                        continue
-                    }
-                    strongSelf.viewModels.append(CommentViewModel(withData: item))
+                    strongSelf.viewModelSet.insert(CommentViewModel(withData: item))
                 }
-                Logging.LogMe("... Success! \(pages)")
+                Logging.LogMe("... Success! pages \(pages)")
                 
             case .failure(let error):
                 Logging.LogMe("... FAILED! \(error)")

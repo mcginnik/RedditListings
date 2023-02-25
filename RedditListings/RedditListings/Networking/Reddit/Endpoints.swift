@@ -22,18 +22,8 @@ struct Endpoints {
         case top
         
         func createListingsURLString(pagingSize: Int?, cursor: String?) -> String {
-            let listingSuffix = String(format: listings, self.rawValue)
-            
-            var url = baseURL + listingSuffix
-            
-            if let pagingSize = pagingSize {
-                url += "?\(pagingLimitToken)\(pagingSize)"
-            }
-            
-            if let cursor = cursor {
-                url += "&\(pagingCursorToken)\(cursor)"
-            }
-            
+            let suffix = String(format: listings, self.rawValue)
+            let url = Endpoints.createURLString(suffix: suffix, pagingSize: pagingSize, cursor: cursor)
             return url
         }
     }
@@ -44,21 +34,25 @@ struct Endpoints {
     // MARK: Token separators
     
     static let pagingLimitToken = "limit="
-    static let pagingCursorToken = "after="
+    static let pagingCursorAfterToken = "after="
+    static let pagingCursorBeforeToken = "before="
+
     
     static func createCommentURLString(listingID: String, pagingSize: Int?, cursor: String?) -> String {
         let suffix = String(format: comments, listingID)
-        
+        let url = createURLString(suffix: suffix, pagingSize: pagingSize, cursor: cursor)
+        Logging.LogMe("commenturl \(url)")
+        return url
+    }
+    
+    static func createURLString(baseURL: String = baseURL, suffix: String, pagingSize: Int?, cursor: String?) -> String {
         var url = baseURL + suffix
-        
         if let pagingSize = pagingSize {
             url += "?\(pagingLimitToken)\(pagingSize)"
         }
-        
         if let cursor = cursor {
-            url += "&\(pagingCursorToken)\(cursor)"
+            url += "&\(pagingCursorAfterToken)\(cursor)"
         }
-        
         return url
     }
 

@@ -27,7 +27,11 @@ class CommentViewModel: ObservableObject {
     }
     
     var caption: String {
-        model.author
+        model.author ?? ""
+    }
+    
+    var createdAt: Double {
+        model.createdAt
     }
     
     var subtitle: String? {
@@ -48,3 +52,19 @@ class CommentViewModel: ObservableObject {
 }
 
 extension CommentViewModel: ListCellDataProtocol {}
+
+extension CommentViewModel: Hashable, Comparable {
+
+    static func == (lhs: CommentViewModel, rhs: CommentViewModel) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func < (lhs: CommentViewModel, rhs: CommentViewModel) -> Bool {
+        lhs.createdAt < rhs.createdAt
+    }
+    
+}

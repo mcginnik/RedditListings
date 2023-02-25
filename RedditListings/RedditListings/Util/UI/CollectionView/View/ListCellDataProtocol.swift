@@ -8,6 +8,7 @@
 import UIKit
 
 protocol ListCellDataProtocol {
+    var id: String { get }
     var title: String { get }
     var subtitle: String? { get }
     var body: String? { get }

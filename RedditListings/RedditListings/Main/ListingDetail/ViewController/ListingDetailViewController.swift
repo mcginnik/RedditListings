@@ -32,7 +32,7 @@ class ListingDetailViewController: UIViewController {
     // MARK: Lifecycle
 
     init(withListing listing: ListingViewModel){
-        self.viewModel = ListingDetailViewModel(listingViewModel: listing)
+        self.viewModel = ListingDetailViewModel(listingViewModel: listing, pagingSize: 5)
         super.init(nibName: nil, bundle: nil)
         setupViews()
     }
@@ -112,6 +112,7 @@ extension ListingDetailViewController: UICollectionViewDataSource, UICollectionV
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: CommentCell.reuseID,
                                                       for: indexPath) as! CommentCell
         }
+        
         let listing = comments[indexPath.item]
         
         (cell as? CommentCell)?.configure(with: listing)
