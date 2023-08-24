@@ -22,11 +22,17 @@ class PostCell: ListCell {
         return iv
     }()
     
+//    var randomLabel: UILabel = {
+//        let label = UILabel()
+//        return label
+//    }()
+    
     // MARK: Views
     
     override func getStackContent() -> UIView {
         hstack(
             super.getStackContent(),
+//            randomLabel,
             stack (
                 UIView(),
                 rightArrow
@@ -36,6 +42,15 @@ class PostCell: ListCell {
             )
 
         )
+    }
+    
+    override func configure(with item: any ListCellDataProtocol) {
+        super.configure(with: item)
+        
+        guard let vm = item as? PostViewModel else { return }
+        
+//        randomLabel.text = "\(vm.random)"
+        
     }
     
 }

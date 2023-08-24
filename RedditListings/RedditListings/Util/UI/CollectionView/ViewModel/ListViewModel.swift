@@ -39,7 +39,7 @@ class ListViewModel<CD: ListCellDataProtocol>: ObservableObject {
             switch res {
             case .success(let pages):
                 for item in pages.flatMap({$0.items}) {
-                    if !strongSelf.idSet.contains(item.id) {
+                    if !strongSelf.idSet.contains(item.id), item.author != nil {
                         strongSelf.data.append(CD(withData: item))
                         strongSelf.idSet.insert(item.id)
                     } else {

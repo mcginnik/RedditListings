@@ -12,7 +12,7 @@ class CommentCell: ListCell {
     // MARK: Properties
     
     override class var reuseID: String {
-        "CommentRowCell"
+        "CommentCell"
     }
     
     override var imageViewHeight: CGFloat {

@@ -16,9 +16,11 @@ class PostDetailViewModel: ListViewModel<CommentViewModel> {
     var postID: String = ""
     
     override var fullURL: String {
-        Endpoints.createCommentURLString(postID: postID,
+        let res = Endpoints.createCommentURLString(postID: postID,
                                          pagingSize: pagingSize,
                                          cursor: data.last?.id)
+        Logging.LogMe("... \(res)")
+        return res
     }
     
     // MARK: Lifecycle

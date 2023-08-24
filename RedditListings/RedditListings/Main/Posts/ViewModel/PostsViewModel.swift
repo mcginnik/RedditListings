@@ -10,7 +10,7 @@ import Combine
 
 class PostsViewModel: ListViewModel<PostViewModel> {
     
-    private (set) var topic: Endpoints.Topic = .new
+    private (set) var topic: Endpoints.Topic = .hot
     
     override var fullURL: String {
         topic.createPostsURLString(pagingSize: pagingSize, cursor: data.last?.id)

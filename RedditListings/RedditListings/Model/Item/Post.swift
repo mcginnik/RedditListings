@@ -16,4 +16,5 @@ struct Post: ItemProtocol, Equatable, Hashable {
     var thumbnail: String?
     var url: String?
     let created: Double?
+//    var random: Double?
 }
